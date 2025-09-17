@@ -56,11 +56,12 @@ const POINTS_CONFIG = [
   { id: "MMS1-3",status:"offline", top: 57.38, left: 90.6, name: "McMasterville"},
   { id: "MSH1-3",status:"offline", top: 56.15, left: 92.3, name: "Mont-Saint-Hilaire"},
 
-  //Ligne 6 Mascouche
+  //Ligne 6 Mascouche.  
   { id: "MTL5-6",status:"offline", top: 61.7, left: 69.8, name: "Gare Central"},
   { id: "MTL5-6",status:"offline", top: 61.7, left: 69.8, name: "Gare Central"},
 
 ];
+
 
 // --- 2) Mapping status -> classe CSS ---
 const STATUS_CLASS = {
