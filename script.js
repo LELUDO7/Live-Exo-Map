@@ -67,7 +67,7 @@ const POINTS_CONFIG = [
 const STATUS_CLASS = {
   stopped: "s-stopped",
   incoming: "s-incoming",
-  offline: "s-offlined"
+  offline: "s-offline"
 };
 
 const board = document.getElementById("board");
