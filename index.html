@@ -32,13 +32,19 @@
         <h2 data-i18n="about.title">À propos</h2>
         <p data-i18n="about.text">
           Projet expérimental qui affiche l’état des gares des trains de banlieue de la région de Montréal.
-          Les points changent de couleur selon le statut rapporté par l’API (arrêté, en approche, hors ligne).
+          Les points changent de couleur selon le statut rapporté par l’API (En gare [vert], En approche [Jaune]).
         </p>
+        <a data-i18n="github.link1" href="https://github.com/LELUDO7/MTL-Train-Live-API">Link to the API GitHub</a>
+        <a data-i18n="github.link2" href="https://github.com/LELUDO7/MTL-Train-Live-API">Link to the live Map website GitHub (This website)</a>
       </div>
     </section>
   </main>
 
+  <script src="./data/train.stations.data.js"></script>
   <script src="config.js"></script>
-  <script src="script.js"></script>
+  <script src="./src/language.js"></script>
+  <script src="./src/api.js"></script>
+  <script src="./src/rendering.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
