@@ -3,6 +3,9 @@
     --outline: 2px;
     --transition: 200ms ease;
     --bg-around: #000;
+    --glass: rgba(20, 20, 24, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text: #fff;
 }
 
 html,
@@ -12,23 +15,103 @@ body {
 }
 
 body {
-    display: grid;
-    place-items: center;
     background: var(--bg-around);
     font-family: system-ui, Arial, sans-serif;
+    color: var(--text);
 }
 
+/* -------- NAVBAR -------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--glass);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.container {
+    width: min(95vw, 1200px);
+    margin: 0 auto;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    margin-right: 16px;
+    opacity: 0.9;
+}
+
+.nav-links a:last-child {
+    margin-right: 0;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 8px;
+}
+
+.lang-btn {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--glass-border);
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform var(--transition), background-color var(--transition);
+}
+
+.lang-btn[aria-pressed="true"] {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* -------- PAGE LAYOUT -------- */
+.page {
+    padding-top: 64px;
+    /* space for navbar */
+}
+
+.map-section {
+    display: grid;
+    place-items: center;
+    padding: 16px 0 8px;
+}
+
+/* Existing board styles (kept) */
 .board {
     position: relative;
     width: min(95vw, 1200px);
     aspect-ratio: 210 / 297;
-    /* Ajuste selon ton image */
     background: url("assets/plan.png") no-repeat center center;
     background-size: contain;
     outline: 1px solid rgba(255, 255, 255, .12);
     border-radius: 8px;
 }
 
+/* Dots (kept) */
 .dot {
     position: absolute;
     width: var(--size);
@@ -56,17 +139,17 @@ body {
 .s-offline {
     background: #9ca3af;
 }
-/* 
-.dot::after {
-    content: attr(data-name);
-    position: absolute;
-    top: calc(100% );
-    left: 50%;
-    transform: translateX(-110%);
-    font-size: 12px;
-    color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-    white-space: nowrap;
-    pointer-events: none;
+
+/* About section */
+.about-section {
+    padding: 24px 0 48px;
 }
-    */
+
+.about-section h2 {
+    margin: 0 0 10px;
+}
+
+.about-section p {
+    margin: 0;
+    opacity: 0.9;
+}

@@ -5,7 +5,7 @@ const POINTS_CONFIG = [
   { id: "MTL3-4",status:"offline", top: 62.53, left: 67.83, name: "Gare Lucien-L'Allier"},
   { id: "MTL2-4",status:"offline", top: 64.45, left: 60.5, name:"Gare Vendôme"},
   { id: "MTL1-4",status:"offline", top: 64.45, left: 50.2, name:"Gare Montréal-Ouest"},
-  { id: "MTL8-4",status:"offline", top: 52, left: 61.7, name:"Gare Parc"},
+  { id: "MTL8-4",status:"offline", top: 51.9, left: 61.6, name:"Gare Parc"},
   { id: "MTL37-4",status:"offline", top: 49.7, left: 58.5, name:"Gare Chabanel"},
   { id: "MTL7-4",status:"offline", top: 48, left: 56, name:"Gare Bois-de-Boulogne"},
   { id: "LVL24-4",status:"offline", top: 44.4, left: 53.55, name:"Gare De la Concorde"},
@@ -58,10 +58,17 @@ const POINTS_CONFIG = [
 
   //Ligne 6 Mascouche.  
   { id: "MTL5-6",status:"offline", top: 61.7, left: 69.8, name: "Gare Central"},
-  { id: "MTL5-6",status:"offline", top: 61.7, left: 69.8, name: "Gare Central"},
-
+  { id: "MTL59-6",status:"offline", top: 49.7, left: 57.17, name: "Gare Ahuntsic"},
+  { id: "MTL58-6",status:"offline", top: 47.4, left: 60.43, name: "Gare Sauvé"},
+  { id: "MTL57-6",status:"offline", top: 41.87, left: 68.25, name: "Gare Saint-Michel-Montréal-Nord"},
+  { id: "MTL56-6",status:"offline", top: 39.83, left: 71.13, name: "Gare Saint-Léonard-Montréal-Nord"},
+  { id: "MTL55-6",status:"offline", top: 39.12, left: 75.86, name: "Gare Anjou"},
+  { id: "MTL54-6",status:"offline", top: 35.5, left: 82.25, name: "Gare Rivière-des-Prairies"},
+  { id: "MTL53-6",status:"offline", top: 34.72, left: 86.09, name: "Gare Pointe-aux-Trembles"},
+  { id: "LEG1-6",status:"offline", top: 29.58, left: 90.81, name: "Gare Repentigny"},
+  { id: "LCN1-6",status:"offline", top: 29.58, left: 85.84, name: "Gare Terrebonne"},
+  { id: "MAS1-6",status:"offline", top: 29.58, left: 80.93, name: "Gare Mascouche"},
 ];
-
 
 // --- 2) Mapping status -> classe CSS ---
 const STATUS_CLASS = {
@@ -89,12 +96,9 @@ function createDots() {
 }
 
 // --- 4) Fetch périodique du serveur ---
-const ENDPOINT = "http://localhost:3000/api/stations"; 
-const INTERVAL_MS = 2000;
-
 async function refreshStatuses() {
   try {
-    const res = await fetch(ENDPOINT, { cache: "no-store" });
+    const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/stations`, { cache: "no-store" });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     const data = await res.json();
     updateDots(data);
@@ -121,7 +125,58 @@ function setAllOffline() {
   }
 }
 
-// --- 5) Init ---
+// --- 5) Init map ---
 createDots();
 refreshStatuses();
-setInterval(refreshStatuses, INTERVAL_MS);
+setInterval(refreshStatuses, CONFIG.INTERVAL_MS);
+
+/* =========================
+   Simple FR/EN i18n toggler
+   ========================= */
+const I18N = {
+  fr: {
+    "nav.map": "Carte",
+    "nav.about": "À propos",
+    "about.title": "À propos",
+    "about.text":
+      "Projet expérimental qui affiche l’état des gares des trains de banlieue de la région de Montréal. Les points changent de couleur selon le statut rapporté par l’API (arrêté, en approche, hors ligne)."
+  },
+  en: {
+    "nav.map": "Map",
+    "nav.about": "About",
+    "about.title": "About",
+    "about.text":
+      "Experimental project showing the status of commuter rail stations around Montréal. Dots change color based on the API status (stopped, incoming, offline)."
+  }
+};
+
+function setLanguage(lang) {
+  const dict = I18N[lang] || I18N.fr;
+  document.documentElement.setAttribute("lang", lang);
+  // Update labels
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key]) el.textContent = dict[key];
+  });
+  // Toggle pressed state on buttons
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    const isPressed = btn.getAttribute("data-lang") === lang;
+    btn.setAttribute("aria-pressed", String(isPressed));
+  });
+  try {
+    localStorage.setItem("lang", lang);
+  } catch {}
+}
+
+function initLanguage() {
+  const saved = (() => {
+    try { return localStorage.getItem("lang"); } catch { return null; }
+  })();
+  setLanguage(saved || "fr");
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
+  });
+}
+
+// Initialize i18n after DOM is ready
+initLanguage();
