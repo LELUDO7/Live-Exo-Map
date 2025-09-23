@@ -6,12 +6,24 @@ async function refreshStatuses() {
     updateDots(data);
   } catch (err) {
     console.warn("Erreur de mise à jour des points:", err);
-    setAllOffline();
+    setAllError();
+  }
+}
+
+async function refreshStatusesR() {
+  try {
+    const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/rails`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    const data = await res.json();
+    updateDotsR(data);
+  } catch (err) {
+    console.warn("Erreur de mise à jour des points:", err);
+    setAllError();
   }
 }
 
 function updateDots(items) {
-  setAllOffline();
+  
   for (const { id, status } of items) {
     const dot = dotsById.get(id);
     if (!dot) continue;
@@ -20,9 +32,19 @@ function updateDots(items) {
   }
 }
 
-function setAllOffline() {
+function updateDotsR(items) {
+ 
+  for (const { id, status } of items) {
+    const dot = dotsById.get(id);
+    if (!dot) continue;
+    dot.classList.remove(...Object.values(STATUS_CLASS));
+    dot.classList.add(STATUS_CLASS[status] || STATUS_CLASS.notpresent);
+  }
+}
+
+function setAllError() {
   for (const dot of dotsById.values()) {
     dot.classList.remove(...Object.values(STATUS_CLASS));
-    dot.classList.add(STATUS_CLASS.offline);
+    dot.classList.add(STATUS_CLASS.error);
   }
 }

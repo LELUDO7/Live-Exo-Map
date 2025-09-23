@@ -10,4 +10,20 @@ function createDots() {
     board.appendChild(el);
     dotsById.set(pt.id, el);
   });
+
+   POINTS_CONFIG_R.forEach(pt => {
+    const el = document.createElement("div");
+    el.className = `dot_r ${STATUS_CLASS.notpresent}`;
+    el.style.top = pt.top + "%";
+    el.style.left = pt.left + "%";
+    el.dataset.id = pt.id;
+    el.dataset.name = pt.name;
+    el.title = `Point ${pt.id}`;
+    board.appendChild(el);
+    dotsById.set(pt.id, el);
+  });
+}
+
+function createDotsR() {
+ 
 }
