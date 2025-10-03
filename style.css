@@ -106,7 +106,7 @@ body {
 .board {
     position: relative;
     width: min(95vw, 1200px);
-    aspect-ratio: 210 / 297;
+    aspect-ratio: 210 / 210;
     background: url("assets/plan.png") no-repeat center center;
     background-size: contain;
     outline: 1px solid rgba(255, 255, 255, .12);
