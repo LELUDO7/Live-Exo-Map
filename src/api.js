@@ -29,6 +29,14 @@ function updateDots(items) {
     if (!dot) continue;
     dot.classList.remove(...Object.values(STATUS_CLASS));
     dot.classList.add(STATUS_CLASS[status] || STATUS_CLASS.offline);
+
+    // Update status box inside menu
+    const statusBox = dot.querySelector(".status-box");
+    if (statusBox) {
+      statusBox.classList.remove(...Object.values(STATUS_CLASS));
+      statusBox.classList.add(STATUS_CLASS[status] || STATUS_CLASS.offline);
+    }
+
   }
 }
 
