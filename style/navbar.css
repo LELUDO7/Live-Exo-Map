@@ -1,0 +1,44 @@
+/* -------- NAVBAR -------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--glass);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.container {
+    width: min(95vw, 1200px);
+    margin: 0 auto;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    margin-right: 16px;
+    opacity: 0.9;
+}
+
+.nav-links a:last-child {
+    margin-right: 0;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}

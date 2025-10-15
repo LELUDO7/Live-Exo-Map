@@ -1,0 +1,60 @@
+/*Menu dot*/
+/* Le menu est caché par défaut */
+.dot-menu {
+    display: none;
+    position: absolute;
+    top: 120%;
+    /* un peu en dessous du point */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(185, 63, 101);
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    min-width: 120px;
+    z-index: 10;
+    color: rgb(255, 255, 255);
+}
+
+.dot-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    gap: 8px;
+}
+
+.dot-menu,
+h1,
+h2,
+h3,
+h4,
+p {
+
+    margin: 0;
+}
+
+.status-box {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    /* arrondi léger */
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.dot-menu, td,
+th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    overflow: hidden;
+}

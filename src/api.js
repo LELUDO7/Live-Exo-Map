@@ -45,11 +45,11 @@ function updateDots(items) {
     menuBody.innerHTML = ``;
 
     if (station.train) {
-      menuBody.innerHTML = `<h3>Détail du train : </h3>`;
+      menuBody.innerHTML = `<h3 data-i18n="menu.detail"></h3>`;
       wagonDetailTable.innerHTML = `
-      <h4>Occupation : ${station.occupancyStatus} </h4>
-      <h4>Composition : </h4> <tr>
-      <th>Ordre</th>
+      <div style="display: flex;"><h4 data-i18n="menu.occupation"></h4> <p>${station.occupancyStatus}</p></div>
+      <h4 data-i18n="menu.composition"></h4> <tr>
+      <th data-i18n="menu.order" ></th>
       <th>Id</th> </tr>`;
 
       for (const wagon of station.train) {
@@ -67,6 +67,8 @@ function updateDots(items) {
       );
     }
   }
+
+  initLanguage();
 }
 
 function updateDotsR(items) {

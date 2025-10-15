@@ -1,51 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <title>ARTM Live Map</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Top Navigation Bar -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <div class="brand">ARTM Live Map</div>
-      <nav class="nav-links">
-        <a href="#map" data-i18n="nav.map">Carte</a>
-        <a href="#about" data-i18n="nav.about">À propos</a>
-      </nav>
-      <div class="lang-switch" aria-label="Language switcher">
-        <button class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
-        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ARTM Live Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="style/menu.css" />
+    <link rel="stylesheet" href="style/navbar.css" />
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand">ARTM Live Map</div>
+        <nav class="nav-links">
+          <a href="#map" data-i18n="nav.map">Carte</a>
+          <a href="#about" data-i18n="nav.about">À propos</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-btn" data-lang="fr" aria-pressed="true">
+            FR
+          </button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">
+            EN
+          </button>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main class="page">
-    <section id="map" class="map-section">
-      <div id="board" class="board"></div>
-    </section>
+    <main class="page">
+      <section id="map" class="map-section">
+        <div id="board" class="board"></div>
+      </section>
 
-    <section id="about" class="about-section">
-      <div class="container">
-        <h2 data-i18n="about.title">À propos</h2>
-        <p data-i18n="about.text">
-          Projet expérimental qui affiche l’état des gares des trains de banlieue de la région de Montréal.
-          Les points changent de couleur selon le statut rapporté par l’API (En gare [vert], En approche [Jaune]).
-        </p>
-        <a data-i18n="github.link1" href="https://github.com/LELUDO7/MTL-Train-Live-API">Link to the API GitHub</a>
-        <a data-i18n="github.link2" href="https://github.com/LELUDO7/MTL-Train-Live-API">Link to the live Map website GitHub (This website)</a>
-      </div>
-    </section>
-  </main>
+      <section id="about" class="about-section">
+        <div class="container">
+          <h2 data-i18n="about.title">À propos</h2>
+          <p data-i18n="about.text">
+            Projet expérimental qui affiche l’état des gares des trains de
+            banlieue de la région de Montréal. Les points changent de couleur
+            selon le statut rapporté par l’API (En gare [vert], En approche
+            [Jaune]).
+          </p>
+          <a
+            data-i18n="github.link1"
+            href="https://github.com/LELUDO7/MTL-Train-Live-API"
+            >Link to the API GitHub</a
+          >
+          <a
+            data-i18n="github.link2"
+            href="https://github.com/LELUDO7/MTL-Train-Live-API"
+            >Link to the live Map website GitHub (This website)</a
+          >
+        </div>
+      </section>
+    </main>
 
-  <script src="./data/train.stations.data.js"></script>
-  <script src="./data/train.rails.data.js"></script>
-  <script src="config.js"></script>
-  <script src="./src/language.js"></script>
-  <script src="./src/api.js"></script>
-  <script src="./src/rendering.js"></script>
-  <script src="main.js"></script>
-</body>
+    <script src="./data/train.stations.data.js"></script>
+    <script src="./data/train.rails.data.js"></script>
+    <script src="config.js"></script>
+    <script src="./src/language.js"></script>
+    <script src="./src/api.js"></script>
+    <script src="./src/rendering.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
