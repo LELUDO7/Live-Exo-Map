@@ -11,12 +11,15 @@ function createDots() {
     dotsById.set(pt.id, el);
 
     const menu = document.createElement("div");
+
     menu.className = "dot-menu";
 
     menu.innerHTML = `
      <div class="dot-menu-header">
       <h1>${pt.name}</h1>
       <div class="status-box ${STATUS_CLASS.offline}"></div>
+     </div>
+     <div class="dot-menu-body">
      </div>
      `;
 
