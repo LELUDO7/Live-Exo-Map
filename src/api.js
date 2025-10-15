@@ -4,7 +4,7 @@ async function refreshStatuses() {
       method: "GET",
       headers: {
         cache: "no-store",
-        train_info: "true",
+        "X-Train-Info": "true",
       },
     });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
