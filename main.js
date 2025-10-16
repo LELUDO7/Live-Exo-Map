@@ -11,6 +11,18 @@ const STATUS_CLASS = {
   error : "error"
 };
 
+const STATUS_CLASS_DISPLAY_INCOMING = {
+  stopped: "notDisplay",
+  incoming: "display",
+  offline: "notDisplay",
+};
+
+const STATUS_CLASS_DISPLAY_STOPPED = {
+  stopped: "display",
+  incoming: "notDisplay",
+  offline: "notDisplay",
+};
+
 renderMap();
 refreshStatuses();
 refreshStatusesR()

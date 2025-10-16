@@ -2,8 +2,8 @@
 
 function renderMap() {
   POINTS_CONFIG.forEach((pt) => {
-    const el = createDots(pt);
-    const menu = createMenu(pt, false);
+    const el = createDots(pt,false);
+    const menu = createMenu(pt);
 
     el.appendChild(menu);
 
@@ -43,9 +43,16 @@ function createMenu(point) {
   menu.className = "dot-menu";
 
   menu.innerHTML = `
-     <div class="dot-menu-header">
-      <h1>${point.name}</h1>
-      <div class="status-box ${STATUS_CLASS.offline}"></div>
+     <div>
+      <div class="dot-menu-header">
+        <h1>${point.name}</h1>
+        <div class="status-box ${STATUS_CLASS.offline}"></div><br>
+      </div>
+      <hr class="dot-menu-line">
+      <div>
+        <h4 data-i18n="menu.train.stop" class="status-text-stop"></h4>
+        <h4 data-i18n="menu.train.inco" class="status-text-inco"></h4>
+      </div>
      </div>
      <div class="dot-menu-body rail-fan-element">
      </div>

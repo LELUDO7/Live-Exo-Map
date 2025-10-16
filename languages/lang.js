@@ -13,6 +13,8 @@ const I18N = {
     "menu.order": "Ordre",
     "settings.title": "Paramètres",
     "settings.advanceDetail": "Détails avancés",
+    "menu.train.inco": "Train en approche",
+    "menu.train.stop": "Train en Gare",
   },
   en: {
     "github.link1": "Link to the API GitHub",
@@ -28,5 +30,7 @@ const I18N = {
     "menu.order": "Order",
     "settings.title": "Settings",
     "settings.advanceDetail": "Advance detail",
+    "menu.train.inco": "Train incoming",
+    "menu.train.stop": "Train at station",
   },
 };

@@ -13,8 +13,6 @@ function initSettings() {
   const check = document.getElementById("RailFanSwitch");
   check.checked = saved;
 
-  console.log(saved)
-
   setSettings(saved || 0);
   document.querySelectorAll(".setting-btn").forEach((btn) => {
     btn.addEventListener("click", () => openSettingsMenu());
@@ -36,9 +34,7 @@ function changeRailFanMode() {
 }
 
 function setSettings(railFanMode) {
-    console.log(railFanMode);
   if (railFanMode) {
-    console.log("true");
     document.querySelectorAll(".rail-fan-element").forEach((el) => {
       el.style.display = "block";
     });

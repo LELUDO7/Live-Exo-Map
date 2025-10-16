@@ -41,6 +41,8 @@ function updateDots(items) {
 
     const menuBody = dot.querySelector(".dot-menu-body");
     const statusBox = dot.querySelector(".status-box");
+    const statusTextStop = dot.querySelector(".status-text-stop");
+    const statusTextInco = dot.querySelector(".status-text-inco");
 
     menuBody.innerHTML = ``;
 
@@ -53,6 +55,20 @@ function updateDots(items) {
       statusBox.classList.remove(...Object.values(STATUS_CLASS));
       statusBox.classList.add(
         STATUS_CLASS[station.status] || STATUS_CLASS.offline
+      );
+    }
+
+    if (statusTextStop) {
+      statusTextStop.classList.remove(...Object.values(STATUS_CLASS_DISPLAY_STOPPED));
+      statusTextStop.classList.add(
+        STATUS_CLASS_DISPLAY_STOPPED[station.status] || STATUS_CLASS_DISPLAY_STOPPED.offline
+      );
+    }
+
+    if (statusTextInco) {
+      statusTextInco.classList.remove(...Object.values(STATUS_CLASS_DISPLAY_INCOMING));
+      statusTextInco.classList.add(
+        STATUS_CLASS_DISPLAY_INCOMING[station.status] || STATUS_CLASS_DISPLAY_INCOMING.offline
       );
     }
   }

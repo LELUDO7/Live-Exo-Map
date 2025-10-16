@@ -124,3 +124,11 @@ html,body {
     margin: 0;
     opacity: 0.9;
 }
+
+.display {
+display: block;
+}
+
+.notDisplay{
+display: none;
+}
