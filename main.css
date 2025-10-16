@@ -19,28 +19,7 @@ html,body {
 
 
 
-.lang-switch {
-    display: flex;
-    gap: 8px;
-}
 
-.lang-btn {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--glass-border);
-    padding: 6px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform var(--transition), background-color var(--transition);
-}
-
-.lang-btn[aria-pressed="true"] {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.lang-btn:hover {
-    transform: translateY(-1px);
-}
 
 /* -------- PAGE LAYOUT -------- */
 .page {

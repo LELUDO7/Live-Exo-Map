@@ -1,27 +1,7 @@
-function createDots() {
+function renderMap() {
   POINTS_CONFIG.forEach((pt) => {
-    const el = document.createElement("div");
-    el.className = `dot ${STATUS_CLASS.offline}`;
-    el.style.top = pt.top + "%";
-    el.style.left = pt.left + "%";
-    el.dataset.id = pt.id;
-    el.dataset.name = pt.name;
-    el.title = `Point ${pt.id}`;
-    board.appendChild(el);
-    dotsById.set(pt.id, el);
-
-    const menu = document.createElement("div");
-
-    menu.className = "dot-menu";
-
-    menu.innerHTML = `
-     <div class="dot-menu-header">
-      <h1>${pt.name}</h1>
-      <div class="status-box ${STATUS_CLASS.offline}"></div>
-     </div>
-     <div class="dot-menu-body">
-     </div>
-     `;
+    const el = createDots(pt);
+    const menu = createMenu(pt, false);
 
     el.appendChild(menu);
 
@@ -30,16 +10,44 @@ function createDots() {
   });
 
   POINTS_CONFIG_R.forEach((pt) => {
-    const el = document.createElement("div");
-    el.className = `dot_r ${STATUS_CLASS.notpresent}`;
-    el.style.top = pt.top + "%";
-    el.style.left = pt.left + "%";
-    el.dataset.id = pt.id;
-    el.dataset.name = pt.name;
-    el.title = `Point ${pt.id}`;
+    const el = createDots(pt, true);
+    
     board.appendChild(el);
     dotsById.set(pt.id, el);
   });
 }
 
-function createDotsR() {}
+function createDots(point, r) {
+  const element = document.createElement("div");
+  
+  if (r) {
+     element.className = `dot_r ${STATUS_CLASS.notpresent}`;
+  } else {
+    element.className = `dot ${STATUS_CLASS.offline}`;
+  }
+  element.style.top = point.top + "%";
+  element.style.left = point.left + "%";
+  element.dataset.id = point.id;
+  element.dataset.name = point.name;
+  element.title = `Point ${point.id}`;
+  
+
+  return element;
+}
+
+function createMenu(point) {
+  const menu = document.createElement("div");
+
+  menu.className = "dot-menu";
+
+  menu.innerHTML = `
+     <div class="dot-menu-header">
+      <h1>${point.name}</h1>
+      <div class="status-box ${STATUS_CLASS.offline}"></div>
+     </div>
+     <div class="dot-menu-body">
+     </div>
+     `;
+
+  return menu;
+}

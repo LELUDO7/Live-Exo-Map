@@ -1,0 +1,99 @@
+.settings-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+   
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.settings-menu {
+    backdrop-filter: blur(8px);
+    background: #1f1f1f83;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    min-width: 250px;
+}
+
+.settings-menu h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.settings-menu button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #333;
+    color: white;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.settings-menu button:hover {
+    background: #b74b4b;
+}
+
+ .Switch-toggle-container {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+ }
+
+ /* Le label agit comme le "switch" */
+ .Switch {
+     position: relative;
+     display: inline-block;
+     width: 50px;
+     height: 28px;
+ }
+
+ /* Cacher la checkbox réelle */
+ .Switch input {
+     opacity: 0;
+     width: 0;
+     height: 0;
+ }
+
+ /* Le slider */
+ .Switch-slider {
+     position: absolute;
+     cursor: pointer;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #555;
+     transition: 0.3s;
+     border-radius: 34px;
+ }
+
+ /* Le rond à l’intérieur */
+ .Switch-slider::before {
+     position: absolute;
+     content: "";
+     height: 20px;
+     width: 20px;
+     left: 4px;
+     bottom: 4px;
+     background-color: white;
+     transition: 0.3s;
+     border-radius: 50%;
+ }
+
+ input:checked+.Switch-slider {
+     background-color: #ff6600;
+ }
+
+ input:checked+.Switch-slider::before {
+     transform: translateX(22px);
+ }

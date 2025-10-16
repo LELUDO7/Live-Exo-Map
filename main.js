@@ -11,9 +11,10 @@ const STATUS_CLASS = {
   error : "error"
 };
 
-createDots();
+renderMap();
 refreshStatuses();
 refreshStatusesR()
 setInterval(refreshStatuses, CONFIG.INTERVAL_MS);
 setInterval(refreshStatusesR, CONFIG.INTERVAL_MS);
 initLanguage();
+initSettings();

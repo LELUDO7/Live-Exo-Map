@@ -7,7 +7,8 @@
     /* un peu en dessous du point */
     left: 50%;
     transform: translateX(-50%);
-    background: rgb(185, 63, 101);
+    backdrop-filter: blur(8px);
+    background: rgba(185, 63, 102, 0.763);
     border: 1px solid #ccc;
     padding: 8px;
     border-radius: 6px;

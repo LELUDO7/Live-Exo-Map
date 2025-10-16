@@ -37,27 +37,14 @@ function updateDots(items) {
     dot.classList.remove(...Object.values(STATUS_CLASS));
     dot.classList.add(STATUS_CLASS[station.status] || STATUS_CLASS.offline);
 
-    // Update status box inside menu
     const menuBody = dot.querySelector(".dot-menu-body");
     const statusBox = dot.querySelector(".status-box");
-    const wagonDetailTable = document.createElement("table");
 
     menuBody.innerHTML = ``;
 
     if (station.train) {
       menuBody.innerHTML = `<h3 data-i18n="menu.detail"></h3>`;
-      wagonDetailTable.innerHTML = `
-      <div style="display: flex;"><h4 data-i18n="menu.occupation"></h4> <p>${station.occupancyStatus}</p></div>
-      <h4 data-i18n="menu.composition"></h4> <tr>
-      <th data-i18n="menu.order" ></th>
-      <th>Id</th> </tr>`;
-
-      for (const wagon of station.train) {
-        const wagonDetail = document.createElement("tr");
-        wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td>`;
-        wagonDetailTable.appendChild(wagonDetail);
-      }
-      menuBody.appendChild(wagonDetailTable);
+      menuBody.appendChild(updateDotMenu(station));
     }
 
     if (statusBox) {
@@ -85,4 +72,21 @@ function setAllError() {
     dot.classList.remove(...Object.values(STATUS_CLASS));
     dot.classList.add(STATUS_CLASS.error);
   }
+}
+
+function updateDotMenu(station) {
+  const wagonDetailTable = document.createElement("table");
+
+  wagonDetailTable.innerHTML = `
+      <div style="display: flex;"><h4 data-i18n="menu.occupation"></h4> <p>${station.occupancyStatus}</p></div>
+      <h4 data-i18n="menu.composition"></h4> <tr>
+      <th data-i18n="menu.order" ></th>
+      <th>Id</th> </tr>`;
+
+  for (const wagon of station.train) {
+    const wagonDetail = document.createElement("tr");
+    wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td>`;
+    wagonDetailTable.appendChild(wagonDetail);
+  }
+  return wagonDetailTable;
 }
