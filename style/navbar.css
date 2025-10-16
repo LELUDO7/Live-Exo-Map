@@ -49,7 +49,7 @@
 }
 
 .setting-btn {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid var(--glass-border);
     padding: 6px 6px;
     border-radius: 10px;
@@ -61,7 +61,7 @@
 }
 
 .lang-btn {
-    
+    background: rgba(63,208,66,0.477);
     color: var(--text);
     border: 1px solid var(--glass-border);
     padding: 6px 10px;
@@ -70,7 +70,7 @@
     transition: transform var(--transition), background-color var(--transition);
 }
 
-.lang-btn[aria-pressed="true"] {
+.lang-btn[aria-pressed="false"] {
     background: rgba(255, 255, 255, 0.1);
 }
 

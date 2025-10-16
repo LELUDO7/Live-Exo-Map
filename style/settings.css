@@ -91,7 +91,7 @@
  }
 
  input:checked+.Switch-slider {
-     background-color: #227b09;
+     background-color: rgba(63, 208, 66, 0.477);
  }
 
  input:checked+.Switch-slider::before {
