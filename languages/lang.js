@@ -12,6 +12,7 @@ const I18N = {
     "menu.composition": "Composition:",
     "menu.order": "Ordre",
     "settings.title": "Paramètres",
+    "settings.advanceDetail": "Détails avancés",
   },
   en: {
     "github.link1": "Link to the API GitHub",
@@ -26,5 +27,6 @@ const I18N = {
     "menu.composition": "Composition:",
     "menu.order": "Order",
     "settings.title": "Settings",
+    "settings.advanceDetail": "Advance detail",
   },
 };
