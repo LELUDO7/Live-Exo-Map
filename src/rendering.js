@@ -1,3 +1,5 @@
+//rendering.js 
+
 function renderMap() {
   POINTS_CONFIG.forEach((pt) => {
     const el = createDots(pt);

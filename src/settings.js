@@ -1,3 +1,4 @@
+//settings.js
 function initSettings() {
   let saved = (() => {
     try {

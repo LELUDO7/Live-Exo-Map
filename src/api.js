@@ -1,3 +1,5 @@
+// api.js
+
 async function refreshStatuses() {
   try {
     const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/stations`, {

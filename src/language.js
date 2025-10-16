@@ -1,4 +1,4 @@
-
+// language.js
 function setLanguage(lang) {
   const dict = I18N[lang] || I18N.fr;
   // Update labels
