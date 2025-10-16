@@ -1,11 +1,19 @@
 function initSettings() {
-  const saved = (() => {
+  let saved = (() => {
     try {
       return localStorage.getItem("rail-fan-mode");
     } catch {
       return null;
     }
   })();
+
+  saved = (saved === "true")
+
+  const check = document.getElementById("RailFanSwitch");
+  check.checked = saved;
+
+  console.log(saved)
+
   setSettings(saved || 0);
   document.querySelectorAll(".setting-btn").forEach((btn) => {
     btn.addEventListener("click", () => openSettingsMenu());
@@ -15,7 +23,6 @@ function initSettings() {
 function openSettingsMenu() {
   document.getElementById("settings-overlay").style.display = "flex";
 }
-  
 
 function closeSettingsMenu() {
   document.getElementById("settings-overlay").style.display = "none";
@@ -23,16 +30,25 @@ function closeSettingsMenu() {
 
 function changeRailFanMode() {
   const check = document.getElementById("RailFanSwitch");
-  const text = document.getElementById("RailFanSwitch-state");
-  const state = check.checked ? "ON" : "OFF";
-  text.textContent = state;
 
-  document.documentElement.setAttribute("rail-fan-mode", state);
+  setSettings(check.checked);
 }
 
 function setSettings(railFanMode) {
-    
-}
-
+    console.log(railFanMode);
+  if (railFanMode) {
+    console.log("true");
+    document.querySelectorAll(".rail-fan-element").forEach((el) => {
+      el.style.display = "block";
+    });
+  } else {
+    document.querySelectorAll(".rail-fan-element").forEach((el) => {
+      el.style.display = "none";
+    });
+  }
 
   
+  try {
+    localStorage.setItem("rail-fan-mode", railFanMode);
+  } catch {}
+}

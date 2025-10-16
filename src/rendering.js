@@ -21,7 +21,7 @@ function createDots(point, r) {
   const element = document.createElement("div");
   
   if (r) {
-     element.className = `dot_r ${STATUS_CLASS.notpresent}`;
+     element.className = `dot_r rail-fan-element ${STATUS_CLASS.notpresent}`;
   } else {
     element.className = `dot ${STATUS_CLASS.offline}`;
   }
@@ -45,7 +45,7 @@ function createMenu(point) {
       <h1>${point.name}</h1>
       <div class="status-box ${STATUS_CLASS.offline}"></div>
      </div>
-     <div class="dot-menu-body">
+     <div class="dot-menu-body rail-fan-element">
      </div>
      `;
 
