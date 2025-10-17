@@ -130,3 +130,9 @@ display: block;
 .notDisplay{
 display: none;
 }
+
+footer {
+    margin-top: 80px;
+    font-size: 0.9rem;
+    text-align: center;
+}
