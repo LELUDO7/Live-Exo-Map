@@ -22,6 +22,7 @@ const I18N = {
     "menu.occupation.crushstanding": "Peu de place debout disponible",
     "menu.occupation.full": "Plein",
     "menu.occupation.nopassanger": "Ne prend plus de passanger",
+    "title.map": "MonTrax Carte",
   },
   en: {
     "github.link1": "Link to the API GitHub",
@@ -46,5 +47,6 @@ const I18N = {
     "menu.occupation.crushstanding": "Few standing space",
     "menu.occupation.full": "Full",
     "menu.occupation.nopassanger": "No more passengers",
+    "title.map": "MonTrax Map",
   },
 };

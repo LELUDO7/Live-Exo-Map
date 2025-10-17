@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <title>MonTrax</title>
+    <title data-i18n="title.map">MonTrax Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
@@ -19,10 +19,9 @@
     <link rel="stylesheet" href="style/settings.css" />
   </head>
   <body>
-    <!-- Top Navigation Bar -->
     <header class="navbar">
       <div class="container nav-inner">
-        <div class="brand">MonTrax</div>
+        <div class="brand" data-i18n="title.map">MonTrax Map</div>
         <nav class="nav-links">
           <a href="#map" data-i18n="nav.map">Carte</a>
           <a href="#about" data-i18n="nav.about">À propos</a>
@@ -89,15 +88,14 @@
         </div>
       </section>
     </main>
-
-    <script src="./data/train.stations.data.js"></script>
-    <script src="./data/train.rails.data.js"></script>
-    <script src="config.js"></script>
-    <script src="./languages/lang.js"></script>
-    <script src="./src/language.js"></script>
-    <script src="./src/settings.js"></script>
-    <script src="./src/api.js"></script>
-    <script src="./src/rendering.js"></script>
-    <script src="main.js"></script>
   </body>
+  <script src="./data/train.stations.data.js"></script>
+  <script src="./data/train.rails.data.js"></script>
+  <script src="config.js"></script>
+  <script src="./languages/lang.js"></script>
+  <script src="./src/language.js"></script>
+  <script src="./src/settings.js"></script>
+  <script src="./src/api.js"></script>
+  <script src="./src/rendering.js"></script>
+  <script src="main.js"></script>
 </html>
