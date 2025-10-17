@@ -51,6 +51,7 @@ function updateDots(items) {
     }
   }
 
+  initSettings();
   initLanguage();
 }
 
@@ -100,8 +101,6 @@ function updateDotMenuBody(station, body) {
     wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td>`;
     table.appendChild(wagonDetail);
   }
-
-  initSettings();
 
   body.appendChild(table);
 }
