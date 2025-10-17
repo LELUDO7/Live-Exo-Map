@@ -39,37 +39,15 @@ function updateDots(items) {
     dot.classList.remove(...Object.values(STATUS_CLASS));
     dot.classList.add(STATUS_CLASS[station.status] || STATUS_CLASS.offline);
 
+    const menuHeader = dot.querySelector(".dot-menu-header");
     const menuBody = dot.querySelector(".dot-menu-body");
-    const statusBox = dot.querySelector(".status-box");
-    const statusTextStop = dot.querySelector(".status-text-stop");
-    const statusTextInco = dot.querySelector(".status-text-inco");
 
+    menuHeader.innerHTML = ``;
     menuBody.innerHTML = ``;
 
+    updateDotMenuHeader(station, menuHeader);
     if (station.train) {
-      menuBody.innerHTML = `<h3 data-i18n="menu.detail"></h3>`;
-      menuBody.appendChild(updateDotMenu(station));
-    }
-
-    if (statusBox) {
-      statusBox.classList.remove(...Object.values(STATUS_CLASS));
-      statusBox.classList.add(
-        STATUS_CLASS[station.status] || STATUS_CLASS.offline
-      );
-    }
-
-    if (statusTextStop) {
-      statusTextStop.classList.remove(...Object.values(STATUS_CLASS_DISPLAY_STOPPED));
-      statusTextStop.classList.add(
-        STATUS_CLASS_DISPLAY_STOPPED[station.status] || STATUS_CLASS_DISPLAY_STOPPED.offline
-      );
-    }
-
-    if (statusTextInco) {
-      statusTextInco.classList.remove(...Object.values(STATUS_CLASS_DISPLAY_INCOMING));
-      statusTextInco.classList.add(
-        STATUS_CLASS_DISPLAY_INCOMING[station.status] || STATUS_CLASS_DISPLAY_INCOMING.offline
-      );
+      updateDotMenuBody(station, menuBody);
     }
   }
 
@@ -92,19 +70,44 @@ function setAllError() {
   }
 }
 
-function updateDotMenu(station) {
-  const wagonDetailTable = document.createElement("table");
+function updateDotMenuBody(station, body) {
+  const table = document.createElement("table");
 
-  wagonDetailTable.innerHTML = `
-      <div style="display: flex;"><h4 data-i18n="menu.occupation"></h4> <p>${station.occupancyStatus}</p></div>
-      <h4 data-i18n="menu.composition"></h4> <tr>
+  body.innerHTML = `
+      <h4 data-i18n="menu.train.stop" class="status-text-stop ${
+        STATUS_CLASS_DISPLAY_STOPPED[station.status] ||
+        STATUS_CLASS_DISPLAY_STOPPED.offline
+      }"></h4>
+      <h4 data-i18n="menu.train.inco" class="status-text-inco ${
+        STATUS_CLASS_DISPLAY_INCOMING[station.status]
+      }"></h4>
+      <div style="display: flex;"><h4 data-i18n="menu.occupation"></h4> <p>${
+        station.occupancyStatus
+      }</p></div>
+      <h3 data-i18n="menu.detail"></h3>
+      <h4 data-i18n="menu.composition"></h4> 
+      `;
+
+  table.innerHTML = `
+      <tr>
       <th data-i18n="menu.order" ></th>
-      <th>Id</th> </tr>`;
+      <th>Id</th> </tr>
+  `;
 
   for (const wagon of station.train) {
     const wagonDetail = document.createElement("tr");
     wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td>`;
-    wagonDetailTable.appendChild(wagonDetail);
+    table.appendChild(wagonDetail);
   }
-  return wagonDetailTable;
+
+  body.appendChild(table);
+}
+
+function updateDotMenuHeader(station, header) {
+  header.innerHTML = `
+      <h1>${station.name}</h1>
+      <div class="status-box ${
+        STATUS_CLASS[station.status] || STATUS_CLASS.offline
+      }"></div><br>
+  `;
 }
