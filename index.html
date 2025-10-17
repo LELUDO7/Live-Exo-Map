@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <title>ARTM Live Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Carte en direct des trains EXO à Montréal — positions et lignes en temps réel."
+    />
+    <meta
+      name="keywords"
+      content="train, EXO, Montréal, mtl train live, carte, map, temps réel, transit, transport"
+    />
+    <meta name="robots" content="index, follow" />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="style/menu.css" />
     <link rel="stylesheet" href="style/navbar.css" />
@@ -40,11 +49,15 @@
       <div id="settings-overlay" class="settings-overlay">
         <div class="settings-menu">
           <h2 data-i18n="settings.title">settings</h2>
-          <hr>
+          <hr />
           <div class="Switch-toggle-container">
             <p data-i18n="settings.advanceDetail">Détail avancer</p>
             <label class="Switch">
-              <input type="checkbox" id="RailFanSwitch" onchange="changeRailFanMode()" />
+              <input
+                type="checkbox"
+                id="RailFanSwitch"
+                onchange="changeRailFanMode()"
+              />
               <span class="Switch-slider"></span>
             </label>
           </div>

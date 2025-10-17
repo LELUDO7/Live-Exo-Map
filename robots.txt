@@ -1,0 +1,6 @@
+# robots.txt for map.mtltrainlive.com
+User-agent: *
+Allow: /
+
+# Emplacement du sitemap
+Sitemap: https://map.mtltrainlive.com/sitemap.xml
