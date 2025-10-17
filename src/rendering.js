@@ -23,7 +23,7 @@ function createDots(point, r) {
   const element = document.createElement("div");
 
   if (r) {
-    element.className = `dot_r rail-fan-element ${STATUS_CLASS.notpresent}`;
+    element.className = `dot_r rail-fan-element-block ${STATUS_CLASS.notpresent}`;
   } else {
     element.className = `dot ${STATUS_CLASS.offline}`;
   }

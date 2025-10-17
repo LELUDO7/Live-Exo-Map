@@ -72,6 +72,7 @@ function setAllError() {
 
 function updateDotMenuBody(station, body) {
   const table = document.createElement("table");
+  table.classList.add("rail-fan-element-table");
 
   body.innerHTML = `
       <h4 data-i18n="menu.train.stop" class="status-text-stop ${
@@ -81,11 +82,11 @@ function updateDotMenuBody(station, body) {
       <h4 data-i18n="menu.train.inco" class="status-text-inco ${
         STATUS_CLASS_DISPLAY_INCOMING[station.status]
       }"></h4>
-      <div style="display: flex;"><h4 data-i18n="menu.occupation"></h4> <p>${
-        station.occupancyStatus
-      }</p></div>
-      <h3 data-i18n="menu.detail"></h3>
-      <h4 data-i18n="menu.composition"></h4> 
+      <div style="display: inline-block;"><h4 data-i18n="menu.occupation"></h4> <p data-i18n="${
+        OCCUPATION_LEVEL_CLASS[station.occupancyStatus]
+      }"> </p></div>
+      <h3 data-i18n="menu.detail" class="rail-fan-element-block"></h3>
+      <h4 data-i18n="menu.composition" class="rail-fan-element-block"></h4> 
       `;
 
   table.innerHTML = `
@@ -99,6 +100,8 @@ function updateDotMenuBody(station, body) {
     wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td>`;
     table.appendChild(wagonDetail);
   }
+
+  initSettings();
 
   body.appendChild(table);
 }

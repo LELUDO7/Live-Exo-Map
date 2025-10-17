@@ -35,13 +35,19 @@ function changeRailFanMode() {
 
 function setSettings(railFanMode) {
   if (railFanMode) {
-    document.querySelectorAll(".rail-fan-element").forEach((el) => {
+    document.querySelectorAll(".rail-fan-element-table").forEach((el) => {
+      el.style.display = "table";
+    });
+    document.querySelectorAll(".rail-fan-element-block").forEach((el) => {
       el.style.display = "block";
     });
   } else {
-    document.querySelectorAll(".rail-fan-element").forEach((el) => {
+    document.querySelectorAll(".rail-fan-element-table").forEach((el) => {
       el.style.display = "none";
     });
+     document.querySelectorAll(".rail-fan-element-block").forEach((el) => {
+       el.style.display = "none";
+     });
   }
 
   
