@@ -1,5 +1,5 @@
-# robots.txt for map.mtltrainlive.com
+# robots.txt for map.montrax.org
 User-agent: *
 Allow: /
 
-Sitemap: https://map.mtltrainlive.com/sitemap.xml
+Sitemap: https://map.montrax.org/sitemap.xml
