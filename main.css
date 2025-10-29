@@ -133,6 +133,29 @@ display: block;
 display: none;
 }
 
+a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0a689e;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+a.btn:hover {
+    background: #0a689edb;
+    transform: translateY(-0.5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+a.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
 footer {
     margin-top: 80px;
     font-size: 0.9rem;
