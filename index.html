@@ -55,7 +55,18 @@
               <input
                 type="checkbox"
                 id="RailFanSwitch"
-                onchange="changeRailFanMode()"
+                onchange="changeSetting()"
+              />
+              <span class="Switch-slider"></span>
+            </label>
+          </div>
+          <div class="Switch-toggle-container">
+            <p data-i18n="settings.segment">Segment</p>
+            <label class="Switch">
+              <input
+                type="checkbox"
+                id="SegmentSwitch"
+                onchange="changeSetting()"
               />
               <span class="Switch-slider"></span>
             </label>
