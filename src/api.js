@@ -46,7 +46,8 @@ function updateDots(items) {
     menuBody.innerHTML = ``;
 
     updateDotMenuHeader(station, menuHeader);
-    if (station.train) {
+
+    if (station.trains_list) {
       updateDotMenuBody(station, menuBody);
     }
   }
@@ -72,37 +73,48 @@ function setAllError() {
 }
 
 function updateDotMenuBody(station, body) {
-  const table = document.createElement("table");
-  table.classList.add("rail-fan-element-table");
+  station.trains_list.forEach((train) => {
+    const trainInfo = document.createElement("div");
+    const table = document.createElement("table");
+    table.classList.add("rail-fan-element-table");
 
-  body.innerHTML = `
-      <h4 data-i18n="menu.train.stop" class="status-text-stop ${
-        STATUS_CLASS_DISPLAY_STOPPED[station.status] ||
+    trainInfo.innerHTML = `
+    <div style="display:flex; align-items:center; white-space:nowrap;">
+      <h3> Train ${train.trip_short_name}&nbsp;</h3>
+      <h3 data-i18n="menu.train.stop" class="status-text-stop ${
+        STATUS_CLASS_DISPLAY_STOPPED[train.status] ||
         STATUS_CLASS_DISPLAY_STOPPED.offline
-      }"></h4>
-      <h4 data-i18n="menu.train.inco" class="status-text-inco ${
-        STATUS_CLASS_DISPLAY_INCOMING[station.status]
-      }"></h4>
-      <div style="display: inline-block;"><h4 data-i18n="menu.occupation"></h4> <p data-i18n="${
-        OCCUPATION_LEVEL_CLASS[station.occupancyStatus]
-      }"> </p></div>
-      <h3 data-i18n="menu.detail" class="rail-fan-element-block"></h3>
-      <h4 data-i18n="menu.composition" class="rail-fan-element-block"></h4> 
+      }"></h3>
+      <h3 data-i18n="menu.train.inco" class="status-text-inco ${
+        STATUS_CLASS_DISPLAY_INCOMING[train.status]
+      }"></h3>
+    </div>
+    <h4 data-i18n="menu.direction" class=" "></h4>
+    <p class=" ">${train.trip_headsign}</p>
+    <h4 data-i18n="menu.occupation"></h4> 
+    <p data-i18n="${OCCUPATION_LEVEL_CLASS[train.occupancyStatus]}"></p>
+    <div class="rail-fan-element-block" style="display:flex; align-items:center; white-space:nowrap;">
+      <h3 data-i18n="menu.detail" ></h3>
+      <h3>&nbsp;Train ${train.trip_short_name}</h3>
+    </div>
+    <h4 data-i18n="menu.composition" class="rail-fan-element-block"></h4> 
       `;
 
-  table.innerHTML = `
+    table.innerHTML = `
       <tr>
       <th data-i18n="menu.order" ></th>
-      <th>Id</th> </tr>
-  `;
+      <th>Id</th> </tr>`;
 
-  for (const wagon of station.train) {
-    const wagonDetail = document.createElement("tr");
-    wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td>`;
-    table.appendChild(wagonDetail);
-  }
+    for (const wagon of train.train) {
+      const wagonDetail = document.createElement("tr");
+      wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td>`;
+      table.appendChild(wagonDetail);
+    }
 
-  body.appendChild(table);
+    trainInfo.appendChild(table);
+
+    body.appendChild(trainInfo);
+  });
 }
 
 function updateDotMenuHeader(station, header) {
