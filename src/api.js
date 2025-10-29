@@ -82,8 +82,7 @@ function updateDotMenuBody(station, body) {
     <div style="display:flex; align-items:center; white-space:nowrap;">
       <h3> Train ${train.trip_short_name}&nbsp;</h3>
       <h3 data-i18n="menu.train.stop" class="status-text-stop ${
-        STATUS_CLASS_DISPLAY_STOPPED[train.status] ||
-        STATUS_CLASS_DISPLAY_STOPPED.offline
+        STATUS_CLASS_DISPLAY_STOPPED[train.status] 
       }"></h3>
       <h3 data-i18n="menu.train.inco" class="status-text-inco ${
         STATUS_CLASS_DISPLAY_INCOMING[train.status]

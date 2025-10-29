@@ -39,7 +39,7 @@ function setSettings(railFanMode) {
       el.style.display = "table";
     });
     document.querySelectorAll(".rail-fan-element-block").forEach((el) => {
-      el.style.display = "block";
+      el.style.display = "flex";
     });
   } else {
     document.querySelectorAll(".rail-fan-element-table").forEach((el) => {

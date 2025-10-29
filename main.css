@@ -17,11 +17,13 @@ html,body {
     color: var(--text);
 }
 
-
-.rail-fan-element {
+.rail-fan-element-block {
     display: none;
 }
 
+.rail-fan-element-table {
+    display: none;
+}
 
 /* -------- PAGE LAYOUT -------- */
 .page {
