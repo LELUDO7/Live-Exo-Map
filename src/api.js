@@ -41,6 +41,9 @@ function updateDots(items) {
 
     const menuHeader = dot.querySelector(".dot-menu-header");
     const menuBody = dot.querySelector(".dot-menu-body");
+    const menu = dot.querySelector(".dot-menu");
+
+    menu.classList.add(DOT_MENU_COLOR_CLASS[station.id.at(-1)]);
 
     menuHeader.innerHTML = ``;
     menuBody.innerHTML = ``;
@@ -76,13 +79,16 @@ function updateDotMenuBody(station, body) {
   station.trains_list.forEach((train) => {
     const trainInfo = document.createElement("div");
     const table = document.createElement("table");
+
+    table.style.whiteSpace = "nowrap";
+    table.style.marginTop = "5px";
     table.classList.add("rail-fan-element-table");
 
     trainInfo.innerHTML = `
     <div style="display:flex; align-items:center; white-space:nowrap;">
       <h3> Train ${train.trip_short_name}&nbsp;</h3>
       <h3 data-i18n="menu.train.stop" class="status-text-stop ${
-        STATUS_CLASS_DISPLAY_STOPPED[train.status] 
+        STATUS_CLASS_DISPLAY_STOPPED[train.status]
       }"></h3>
       <h3 data-i18n="menu.train.inco" class="status-text-inco ${
         STATUS_CLASS_DISPLAY_INCOMING[train.status]
@@ -92,7 +98,7 @@ function updateDotMenuBody(station, body) {
     <p class=" ">${train.trip_headsign}</p>
     <h4 data-i18n="menu.occupation"></h4> 
     <p data-i18n="${OCCUPATION_LEVEL_CLASS[train.occupancyStatus]}"></p>
-    <div class="rail-fan-element-block" style="display:flex; align-items:center; white-space:nowrap;">
+    <div class="rail-fan-element-block" style="display:flex; align-items:center; white-space:nowrap; margin-top:10px; ">
       <h3 data-i18n="menu.detail" ></h3>
       <h3>&nbsp;Train ${train.trip_short_name}</h3>
     </div>
@@ -102,11 +108,13 @@ function updateDotMenuBody(station, body) {
     table.innerHTML = `
       <tr>
       <th data-i18n="menu.order" ></th>
-      <th>Id</th> </tr>`;
+      <th>Id</th> 
+      <th data-i18n="menu.model" ></th> 
+      </tr>`;
 
     for (const wagon of train.train) {
       const wagonDetail = document.createElement("tr");
-      wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td>`;
+      wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${wagon.id} </td> <td> ${WAGON_MODEL_NAME[wagon.model_id]} </td>`;
       table.appendChild(wagonDetail);
     }
 

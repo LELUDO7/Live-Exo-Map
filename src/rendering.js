@@ -3,7 +3,7 @@
 function renderMap() {
   POINTS_CONFIG.forEach((pt) => {
     const el = createDots(pt, false);
-    const menu = createMenu(pt);
+    const menu = createMenu();
 
     el.appendChild(menu);
 
@@ -36,7 +36,7 @@ function createDots(point, r) {
   return element;
 }
 
-function createMenu(point) {
+function createMenu() {
   const menu = document.createElement("div");
 
   menu.className = "dot-menu";

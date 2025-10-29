@@ -8,7 +8,6 @@
     left: 50%;
     transform: translateX(-50%);
     backdrop-filter: blur(8px);
-    background: rgba(185, 63, 102, 0.763);
     border: 1px solid #ccc;
     padding: 8px;
     border-radius: 6px;
@@ -24,6 +23,31 @@
     justify-content: space-between;
     white-space: nowrap;
     gap: 8px;
+}
+
+.dot-menu-line-1 {
+    background: #F26178c3;
+    color: #000000;
+}
+
+.dot-menu-line-3 {
+    background: #9A98C8c3;
+    color: #000000;
+}
+
+.dot-menu-line-4 {
+    background: #FFDF7Fc3;
+    color: #000000;
+}
+
+.dot-menu-line-5 {
+    background: #57B6B2c3;
+    color: #000000;
+}
+
+.dot-menu-line-6 {
+    background: #CC5599c3;
+    color: #000000;
 }
 
 .dot-menu-line {
