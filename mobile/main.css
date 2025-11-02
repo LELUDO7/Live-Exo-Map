@@ -1,0 +1,136 @@
+:root {
+    --glass: rgba(20, 20, 24, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text: #fff;
+    --bg: #000;
+}
+.mobile-view {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    font-family: sans-serif;
+}
+
+
+html,body {
+    background: var(--bg);
+    font-family: system-ui, Arial, sans-serif;
+    color: var(--text);
+}
+
+
+
+.stations-wrapper {
+    flex: 1;
+    position: relative;
+    padding: 55px 0;
+}
+
+.vertical-rail {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+}
+
+.vertical-rail.line1 {
+    background: #F26178;
+}
+
+.vertical-rail.line3 {
+    background: #9A98C8;
+}
+
+.vertical-rail.line4 {
+    background: #FFDF7F;
+}
+
+.vertical-rail.line5 {
+    background: #57B6B2;
+}
+
+.vertical-rail.line6 {
+    background: #CC5599;
+}
+
+.stations-list {    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.station-item {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 22px 10px;
+    /* spacing = équidistant feeling */
+    position: relative;
+}
+
+.station-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 4px solid #000;
+    background: var(--bg);
+    position: absolute;
+    left: 29px;
+}
+
+.station-dot.line1 {
+    border-color: #f9f9f9;
+}
+
+.station-dot.line3 {
+    border-color: #f9f9f9;
+}
+
+.station-dot.line4 {
+    border-color: #f9f9f9;
+}
+
+.station-dot.line5 {
+    border-color: #57B6B2;
+}
+
+.station-dot.line6 {
+    border-color: #CC5599;
+}
+
+/* State colors */
+.station-dot.stopped {
+    background: #22c55e;
+}
+
+.station-dot.incoming {
+    background: #f59e0b;
+}
+
+.station-dot.offline {
+    background: #9ca3af;
+}
+
+.station-dot.error {
+    background: red;
+}
+
+.station-name {
+    margin-left: 60px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.station-info-btn {
+    background: none;
+    border: none;
+    margin-left: auto;
+    font-size: 16px;
+}
+
+

@@ -1,5 +1,5 @@
 //settings.js
-function initSettings() {
+export function initSettings() {
   let saved_fan_set = (() => {
     try {
       return localStorage.getItem("rail-fan-mode");
@@ -29,24 +29,28 @@ function initSettings() {
   document.querySelectorAll(".setting-btn").forEach((btn) => {
     btn.addEventListener("click", () => openSettingsMenu());
   });
+
+  document.getElementById("closeSet").addEventListener("click", closeSettingsMenu);
+  document.getElementById("RailFanSwitch").addEventListener("change",changeSetting );
+  document.getElementById("SegmentSwitch").addEventListener("change", changeSetting);
 }
 
-function openSettingsMenu() {
+export function openSettingsMenu() {
   document.getElementById("settings-overlay").style.display = "flex";
 }
 
-function closeSettingsMenu() {
+export function closeSettingsMenu() {
   document.getElementById("settings-overlay").style.display = "none";
 }
 
-function changeSetting() {
+export function changeSetting() {
   const check_fan = document.getElementById("RailFanSwitch");
   const check_segment = document.getElementById("SegmentSwitch");
 
   setSettings(check_fan.checked, check_segment.checked);
 }
 
-function setSettings(railFanMode, railSegmentmode) {
+export function setSettings(railFanMode, railSegmentmode) {
   if (railFanMode) {
     document.querySelectorAll(".rail-fan-element-table").forEach((el) => {
       el.style.display = "table";

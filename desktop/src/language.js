@@ -1,5 +1,5 @@
 // language.js
-function setLanguage(lang) {
+export function setLanguage(lang) {
   const dict = I18N[lang] || I18N.fr;
   // Update labels
   document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -16,7 +16,7 @@ function setLanguage(lang) {
   } catch {}
 }
 
-function initLanguage() {
+export function initLanguage() {
   const saved = (() => {
     try {
       return localStorage.getItem("lang");
