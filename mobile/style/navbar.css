@@ -5,7 +5,7 @@
     right: 0;
     z-index: 1000;
     backdrop-filter: blur(8px);
-    background: #1f1f1f83;
+    background: var(--brand-glass);
     border-bottom: 1px solid var(--glass-border);
     display: flex;
     justify-content: space-between;
@@ -76,7 +76,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
 
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--brand);
     color: var(--text);
     border: 1px solid var(--glass-border);
     padding: 8px 12px;

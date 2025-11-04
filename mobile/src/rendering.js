@@ -61,8 +61,9 @@ function addStation(dot) {
     dot.status
   }"></div>
     <span class="station-name">${dot.name}</span>
-    <button class="station-info-btn">(i)</button>
+    <button class="station-info-btn"><img class="station-info-btn-icon" src="./assets/info-circle.svg" alt="" width="18" height="18" /></button>
   `;
+
   ul.appendChild(li);
 }
 
