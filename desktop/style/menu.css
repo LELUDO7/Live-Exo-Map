@@ -4,7 +4,6 @@
     display: none;
     position: absolute;
     top: 120%;
-    /* un peu en dessous du point */
     left: 50%;
     transform: translateX(-50%);
     backdrop-filter: blur(8px);
@@ -73,7 +72,6 @@ p {
     width: 12px;
     height: 12px;
     border-radius: 3px;
-    /* arrondi léger */
     margin-right: 6px;
     vertical-align: middle;
 }
