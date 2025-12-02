@@ -52,7 +52,6 @@ function createMenu() {
       <div class="dot-menu-body ">
       </div>
      `;
-  //rail-fan-element
   return menu;
 }
 

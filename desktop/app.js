@@ -65,7 +65,7 @@ export async function init() {
             selon le statut rapporté par l’API (En gare [vert], En approche
             [Jaune]).
           </p>
-          <a class="btn" onclick="window.open('https://montrax.org', '_blank')">
+          <a class="btn" data-i18n="about.more.link" onclick="window.open('https://montrax.org', '_blank')">
             En savoir plus
           </a>
         </div>

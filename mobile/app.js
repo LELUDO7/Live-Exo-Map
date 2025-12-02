@@ -23,8 +23,11 @@ export async function init() {
 
   <div class="stations-wrapper">
     <div class="vertical-rail"></div>
-    <ul class="stations-list"></ul>  <!-- JS va append li ici -->
+    <ul class="stations-list"></ul>  
   </div>
+  <footer>
+    <p>© 2025 — MonTrax</p>
+  </footer>
 </div>
   `;
   const rend = await import("./src/rendering.js");

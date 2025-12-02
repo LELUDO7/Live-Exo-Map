@@ -26,6 +26,8 @@ const I18N = {
     "menu.occupation.full": "Complet",
     "menu.occupation.nopassanger": "Ne prend plus de passagers",
     "title.map": "Carte MonTrax",
+    "close": "Fermer",
+    "about.more.link": "En savoir plus",
   },
   en: {
     "github.link1": "Link To The API GitHub",
@@ -54,5 +56,7 @@ const I18N = {
     "menu.occupation.full": "Full",
     "menu.occupation.nopassanger": "No Longer Taking Passengers",
     "title.map": "MonTrax Map",
+    "close": "Close",
+    "about.more.link": "Learn more",
   },
 };
