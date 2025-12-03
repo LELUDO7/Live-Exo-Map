@@ -39,24 +39,44 @@ html,body {
     height: 100%;
 }
 
-.vertical-rail.line1 {
+.exoColor.line1 {
     background: #F26178;
 }
 
-.vertical-rail.line3 {
+.exoColor.line3 {
     background: #9A98C8;
 }
 
-.vertical-rail.line4 {
+.exoColor.line4 {
     background: #FFDF7F;
 }
 
-.vertical-rail.line5 {
+.exoColor.line5 {
     background: #57B6B2;
 }
 
-.vertical-rail.line6 {
+.exoColor.line6 {
     background: #CC5599;
+}
+
+.exoColorLow.line1 {
+    background: #F26178c3;
+}
+
+.exoColorLow.line3 {
+    background: #9A98C8c3;
+}
+
+.exoColorLow.line4 {
+    background: #FFDF7Fc3;
+}
+
+.exoColorLow.line5 {
+    background: #57B6B2c3;
+}
+
+.exoColorLow.line6 {
+    background: #CC5599c3;
 }
 
 .stations-list {    
@@ -140,7 +160,19 @@ html,body {
     filter: brightness(0) saturate(100%) invert(65%);
 }
 
+.display {
+    display: block;
+}
+
+.notDisplay {
+    display: none;
+}
+
 footer {
     font-size: 0.9rem;
     text-align: center;
+}
+
+.page {
+    padding-top: 32px; /* space for navbar*/
 }

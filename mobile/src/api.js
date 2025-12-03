@@ -1,4 +1,5 @@
-const rend = await import("./rendering.js");
+const STATIONSDATA = await import("./stationsData.js");
+const REND = await import("./rendering.js")
 
 export async function refreshStatuses() {
   try {
@@ -11,8 +12,8 @@ export async function refreshStatuses() {
     });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     const data = await res.json();
-    rend.updateLiveStationData(data);
-    rend.updateSation();
+    STATIONSDATA.updateLiveStationData(data);
+    REND.updateSation();
   } catch (err) {
     console.warn("Erreur de mise à jour des points:", err);
   }

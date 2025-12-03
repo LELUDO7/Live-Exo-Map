@@ -1,0 +1,58 @@
+.station-detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.station-detail-menu {
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 10px 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    min-width: 250px;
+}
+
+.station-detail-menu-body h1 {
+    text-align: center;
+}
+
+.station-detail-menu-body {
+    text-align: left;
+}
+
+.station-detail-menu button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #6f2121;
+    color: white;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.station-detail-menu,
+h1,
+h2,
+h3,
+h4,
+p {
+
+    margin: 0;
+}
+
+.station-detail-menu-line {
+    border: none;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+}

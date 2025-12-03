@@ -1,9 +1,5 @@
+const STATIONSDATA = await import("./stationsData.js");
 const ul = document.querySelector(".stations-list");
-let liveStationData;
-
-export function updateLiveStationData(data) {
-  liveStationData = data;
-}
 
 export function updateSation() {
   const select = document.getElementById("train-line-select");
@@ -33,7 +29,7 @@ function loadStationsForLine(lineId) {
 
   ul.innerHTML = "";
 
-  updateVerticalRailColor(lineId);
+  updateLineColor(lineId);
 
   POINTS_CONFIG.forEach((dot) => {
     if (dot.id.at(-1) == lineId) {
@@ -41,11 +37,11 @@ function loadStationsForLine(lineId) {
     }
   });
 
+  let liveStationData = STATIONSDATA.getLiveStationData();
   if (liveStationData) {
     liveStationData.forEach((station) => {
       const dot = document.getElementById(station.id);
       if (dot) {
-        
         dot.classList.remove(...Object.values(STATUS_CLASS));
         dot.classList.add(STATUS_CLASS[station.status] || STATUS_CLASS.error);
       }
@@ -61,22 +57,30 @@ function addStation(dot) {
     dot.status
   }"></div>
     <span class="station-name">${dot.name}</span>
-    <button class="station-info-btn"><img class="station-info-btn-icon" src="./assets/info-circle.svg" alt="" width="18" height="18" /></button>
+    <button data-open-station-menu
+        data-station-id="${
+          dot.id
+        }" class="station-info-btn"><img class="station-info-btn-icon" src="./assets/info-circle.svg" alt="" width="18" height="18" /></button>
   `;
 
   ul.appendChild(li);
 }
 
-function updateVerticalRailColor(lineId) {
-  const line = document.querySelector(".vertical-rail");
-  line.classList.remove("line1");
-  line.classList.remove("line3");
-  line.classList.remove("line4");
-  line.classList.remove("line5");
-  line.classList.remove("line6");
+function updateLineColor(lineId) {
+  const exoColor = document.querySelectorAll(".exoColor");
+  const exoColorLow = document.querySelectorAll(".exoColorLow");
 
-  line.classList.add(`line${lineId}`);
+  exoColor.forEach((line) => {
+    line.classList.remove("line1", "line3", "line4", "line5", "line6");
+    line.classList.add(`line${lineId}`);
+  });
+
+  exoColorLow.forEach((line) => {
+    line.classList.remove("line1", "line3", "line4", "line5", "line6");
+    line.classList.add(`line${lineId}`);
+  });
 }
+
 
 const STATUS_CLASS = {
   stopped: "stopped",

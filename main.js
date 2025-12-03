@@ -5,6 +5,7 @@ async function loadUI() {
     document.head.insertAdjacentHTML(
       "beforeend",
       `<link rel="stylesheet" href="./mobile/main.css">
+       <link rel="stylesheet" href="./mobile/style/menu.css">
        <link rel="stylesheet" href="./mobile/style/navbar.css">`
     );
     const mod = await import("./mobile/app.js");
