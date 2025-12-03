@@ -144,3 +144,7 @@ footer {
     font-size: 0.9rem;
     text-align: center;
 }
+
+.page {
+    padding-top: 32px; /* space for navbar*/
+}

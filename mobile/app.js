@@ -19,22 +19,38 @@ export async function init() {
     </div>
   </header>
 
+  <main class="page">
+
+    <div id="station-detail-overlay" class="station-detail-overlay">
+          <div class="station-detail-menu">
+          <h1>asdasdadas</h1>
+            
+            <button data-i18n="close" id="closeStationMenu">
+              Fermer
+            </button>
+          </div>
+    </div>
+
   
 
-  <div class="stations-wrapper">
-    <div class="vertical-rail"></div>
-    <ul class="stations-list"></ul>  
-  </div>
-  <footer>
-    <p>© 2025 — MonTrax</p>
-  </footer>
+    <div class="stations-wrapper">
+      <div class="vertical-rail"></div>
+      <ul class="stations-list"></ul>  
+    </div>
+    <footer>
+      <p>© 2025 — MonTrax</p>
+    </footer>
+
+  </main>
 </div>
   `;
   const rend = await import("./src/rendering.js");
   const api = await import("./src/api.js");
+  const menu = await import("./src/menu.js")
 
   rend.updateSation();
   rend.initLinesDropdown();
   api.refreshStatuses();
+  menu.initStationDetailMenu();
   setInterval(api.refreshStatuses, CONFIG.INTERVAL_MS);
 }

@@ -1,9 +1,5 @@
+const STATIONSDATA = await import("./stationsData.js");
 const ul = document.querySelector(".stations-list");
-let liveStationData;
-
-export function updateLiveStationData(data) {
-  liveStationData = data;
-}
 
 export function updateSation() {
   const select = document.getElementById("train-line-select");
@@ -40,12 +36,12 @@ function loadStationsForLine(lineId) {
       addStation(dot);
     }
   });
-
+  
+  let liveStationData = STATIONSDATA.getLiveStationData()
   if (liveStationData) {
     liveStationData.forEach((station) => {
       const dot = document.getElementById(station.id);
       if (dot) {
-        
         dot.classList.remove(...Object.values(STATUS_CLASS));
         dot.classList.add(STATUS_CLASS[station.status] || STATUS_CLASS.error);
       }
@@ -61,7 +57,10 @@ function addStation(dot) {
     dot.status
   }"></div>
     <span class="station-name">${dot.name}</span>
-    <button class="station-info-btn"><img class="station-info-btn-icon" src="./assets/info-circle.svg" alt="" width="18" height="18" /></button>
+    <button data-open-station-menu
+        data-station-id="${
+          dot.id
+        }" class="station-info-btn"><img class="station-info-btn-icon" src="./assets/info-circle.svg" alt="" width="18" height="18" /></button>
   `;
 
   ul.appendChild(li);
