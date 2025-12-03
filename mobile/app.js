@@ -30,7 +30,27 @@ export async function init() {
           </div>
     </div>
 
-  
+    <div id="settings-overlay" class="settings-overlay">
+        <div class="settings-menu">
+          <h2 data-i18n="settings.title">settings</h2>
+          <hr />
+          <div class="Switch-toggle-container">
+            <p data-i18n="settings.advanceDetail">Détail avancer</p>
+            <label class="Switch">
+              <input
+                type="checkbox"
+                id="RailFanSwitch"
+              />
+              <span class="Switch-slider"></span>
+            </label>
+          </div>
+          <button data-i18n="close" id="closeSet">
+            Fermer
+          </button>
+        </div>
+    </div>
+
+
 
     <div class="stations-wrapper">
       <div class="exoColor vertical-rail"></div>
@@ -45,12 +65,14 @@ export async function init() {
   `;
   const lang = await import("./src/language.js");
   const rend = await import("./src/rendering.js");
+  const set = await import("./src/settings.js");
   const api = await import("./src/api.js");
   const menu = await import("./src/menu.js")
 
   lang.initLanguage();
   rend.updateSation();
   rend.initLinesDropdown();
+  set.initSettings();
   api.refreshStatuses();
   menu.initStationDetailMenu();
   setInterval(api.refreshStatuses, CONFIG.INTERVAL_MS);

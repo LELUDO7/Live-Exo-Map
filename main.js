@@ -6,7 +6,8 @@ async function loadUI() {
       "beforeend",
       `<link rel="stylesheet" href="./mobile/main.css">
        <link rel="stylesheet" href="./mobile/style/menu.css">
-       <link rel="stylesheet" href="./mobile/style/navbar.css">`
+       <link rel="stylesheet" href="./mobile/style/navbar.css">
+       <link rel="stylesheet" href="./mobile/style/settings.css">`
     );
     const mod = await import("./mobile/app.js");
     mod.init(); // lance le mobile
