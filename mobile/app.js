@@ -3,7 +3,7 @@ export async function init() {
     <div class="mobile-view">
   <header class="mobile-header">
     <div class="container nav-inner">
-      <div class="brand">MonTrax</div>
+      <a href="https://montrax.org" class="brand">MonTrax</a>
       <div class="line-select">
       <select id="train-line-select"></select>
       </div>
