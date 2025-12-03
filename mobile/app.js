@@ -22,10 +22,9 @@ export async function init() {
   <main class="page">
 
     <div id="station-detail-overlay" class="station-detail-overlay">
-          <div class="station-detail-menu">
-          <h1>asdasdadas</h1>
-            
-            <button data-i18n="close" id="closeStationMenu">
+          <div id="station-detail-menu" class="station-detail-menu exoColorLow">
+          <div id="station-detail-menu-body"></div>
+          <button data-i18n="close" id="closeStationMenu">
               Fermer
             </button>
           </div>
@@ -34,7 +33,7 @@ export async function init() {
   
 
     <div class="stations-wrapper">
-      <div class="vertical-rail"></div>
+      <div class="exoColor vertical-rail"></div>
       <ul class="stations-list"></ul>  
     </div>
     <footer>
@@ -44,10 +43,12 @@ export async function init() {
   </main>
 </div>
   `;
+  const lang = await import("./src/language.js");
   const rend = await import("./src/rendering.js");
   const api = await import("./src/api.js");
   const menu = await import("./src/menu.js")
 
+  lang.initLanguage();
   rend.updateSation();
   rend.initLinesDropdown();
   api.refreshStatuses();

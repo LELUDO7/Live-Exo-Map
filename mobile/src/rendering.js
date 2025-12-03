@@ -29,15 +29,15 @@ function loadStationsForLine(lineId) {
 
   ul.innerHTML = "";
 
-  updateVerticalRailColor(lineId);
+  updateLineColor(lineId);
 
   POINTS_CONFIG.forEach((dot) => {
     if (dot.id.at(-1) == lineId) {
       addStation(dot);
     }
   });
-  
-  let liveStationData = STATIONSDATA.getLiveStationData()
+
+  let liveStationData = STATIONSDATA.getLiveStationData();
   if (liveStationData) {
     liveStationData.forEach((station) => {
       const dot = document.getElementById(station.id);
@@ -66,16 +66,21 @@ function addStation(dot) {
   ul.appendChild(li);
 }
 
-function updateVerticalRailColor(lineId) {
-  const line = document.querySelector(".vertical-rail");
-  line.classList.remove("line1");
-  line.classList.remove("line3");
-  line.classList.remove("line4");
-  line.classList.remove("line5");
-  line.classList.remove("line6");
+function updateLineColor(lineId) {
+  const exoColor = document.querySelectorAll(".exoColor");
+  const exoColorLow = document.querySelectorAll(".exoColorLow");
 
-  line.classList.add(`line${lineId}`);
+  exoColor.forEach((line) => {
+    line.classList.remove("line1", "line3", "line4", "line5", "line6");
+    line.classList.add(`line${lineId}`);
+  });
+
+  exoColorLow.forEach((line) => {
+    line.classList.remove("line1", "line3", "line4", "line5", "line6");
+    line.classList.add(`line${lineId}`);
+  });
 }
+
 
 const STATUS_CLASS = {
   stopped: "stopped",
