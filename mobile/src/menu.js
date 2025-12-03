@@ -25,13 +25,13 @@ export function openStationDetailMenu(stationId) {
   if (stationData) {
     stationData.forEach((station) => {
       if (station.id == stationId) {
-        if (station.trains_list.length == 0) {
-           menuBody.innerHTML = `
+        menuBody.innerHTML = `
             <h1>${station.name}</h1>`;
-        } else {
-            station.trains_list.forEach((train) => {
-              menuBody.innerHTML = `
-            <h1>${station.name}</h1>
+
+        if (station.trains_list.length != 0) {
+          station.trains_list.forEach((train) => {
+            const trainInfo = document.createElement("div");
+            trainInfo.innerHTML = `
             <hr class="station-detail-menu-line">
             <div style="display:flex; align-items:center; white-space:nowrap;">
             <h3> Train ${train.trip_short_name}&nbsp;</h3>
@@ -46,9 +46,9 @@ export function openStationDetailMenu(stationId) {
             <p class=" ">${train.trip_headsign}</p>
             <h4 data-i18n="menu.occupation"></h4> 
             <p data-i18n="${OCCUPATION_LEVEL_CLASS[train.occupancyStatus]}"></p>
-    
             `;
-            });
+            menuBody.appendChild(trainInfo);
+          });
         }
       }
     });
