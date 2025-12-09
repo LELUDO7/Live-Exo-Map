@@ -36,7 +36,7 @@ const I18N = {
     "consists.line4" : "Ligne 12 Saint-Jérôme",
     "consists.line5" : "Ligne 14 Candiac",
     "consists.line6" : "Ligne 15 Mascouche",
-    "consists.schedule.link" : "Horraire de la ligne",
+    "consists.schedule.link" : "Horaire de la ligne",
     "consists.table.order": "Ordre",
     "consists.table.model": "Modèle",
   },
