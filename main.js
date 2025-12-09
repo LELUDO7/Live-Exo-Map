@@ -17,7 +17,8 @@ async function loadUI() {
       `<link rel="stylesheet" href="./desktop/main.css">
        <link rel="stylesheet" href="./desktop/style/menu.css">
        <link rel="stylesheet" href="./desktop/style/navbar.css">
-       <link rel="stylesheet" href="./desktop/style/settings.css">`
+       <link rel="stylesheet" href="./desktop/style/settings.css">
+       <link rel="stylesheet" href="./desktop/style/consists.css">`
     );
     const app = await import("./desktop/app.js");
    
