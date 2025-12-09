@@ -25,10 +25,8 @@ html,body {
     display: none;
 }
 
-/* -------- PAGE LAYOUT -------- */
 .page {
     padding-top: 64px;
-    /* space for navbar */
 }
 
 .map-section {
@@ -37,7 +35,6 @@ html,body {
     padding: 16px 0 8px;
 }
 
-/* Existing board styles (kept) */
 .board {
     position: relative;
     width: min(95vw, 1200px);
@@ -49,8 +46,6 @@ html,body {
 }
 
 
-
-/* Dots (kept) */
 .dot {
     z-index: 1;
     position: absolute;
@@ -111,7 +106,6 @@ html,body {
     background: #9ca3af;
 }
 
-/* About section */
 .about-section {
     padding: 24px 0 48px;
 }
@@ -157,6 +151,8 @@ a.btn:active {
 }
 
 footer {
+    background: var(--bg-around);
+    color: var(--text);
     margin-top: 80px;
     font-size: 0.9rem;
     text-align: center;

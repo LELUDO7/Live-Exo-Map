@@ -4,8 +4,9 @@ export async function init() {
       <div class="container nav-inner">
         <div class="brand" data-i18n="title.map">MonTrax Map</div>
         <nav class="nav-links">
-          <a href="#map" data-i18n="nav.map">Carte</a>
-          <a href="#about" data-i18n="nav.about">À propos</a>
+          <a id="mapBtn" href="#map" data-i18n="nav.map">Carte</a>
+          <a id="consistsBtn" data-i18n="nav.consists">Consists</a>
+          <a id="aboutBtn" href="#about" data-i18n="nav.about">À propos</a>
         </nav>
         <div class="lang-switch" aria-label="Language switcher">
           <button class="lang-btn" data-lang="fr" aria-pressed="true">
@@ -24,6 +25,47 @@ export async function init() {
     <main class="page">
       <section id="map" class="map-section">
         <div id="board" class="board"></div>
+      </section>
+
+      <section class="consists-section" id="consists">
+        <div class="container">
+          <h1 data-i18n="consists" >Consists</h1>
+          <hr class="consists-line">
+          <div class="consists-line-1 consists-table">
+            <h2 data-i18n="consists.line1" >Ligne 11 Vaudreuil/Hudson</h2>
+            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/VH/exo11-20241122_21001231.pdf">Horraire de la ligne</a>
+            <hr class="consists-line">
+            <div id="consists-line-1-table" ></div>
+          </div>
+          <hr class="consists-line">
+          <div class="consists-line-4 consists-table">
+            <h2 data-i18n="consists.line4" >Ligne 12 Saint-Jérôme</h2>
+            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/SJ/exo12-20250616_21001231.pdf">Horraire de la ligne</a>
+            <hr class="consists-line">
+             <div id="consists-line-4-table" ></div>
+          </div>
+         <hr class="consists-line">
+          <div class="consists-line-3 consists-table">
+            <h2 data-i18n="consists.line3" >Ligne 13 Mont-Saint-Hilaire</h2> 
+            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/SH/exo13-20231024_21001231.pdf">Horraire de la ligne</a>
+            <hr class="consists-line">
+             <div id="consists-line-3-table" ></div>
+          </div>
+          <hr class="consists-line">
+          <div class="consists-line-5 consists-table">
+            <h2 data-i18n="consists.line5" >Ligne 14 Candiac</h2>
+            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/CA/exo14-20241122_21001231.pdf">Horraire de la ligne</a>
+            <hr class="consists-line">
+             <div id="consists-line-5-table" ></div>
+          </div>
+          <hr class="consists-line">
+          <div class="consists-line-6 consists-table">
+            <h2 data-i18n="consists.line6" >Ligne 15 Mascouche</h2>
+            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/MA/exo15-20230731_21001231.pdf">Horraire de la ligne</a>
+            <hr class="consists-line">
+             <div id="consists-line-6-table" ></div>
+          </div>
+        </div>
       </section>
 
       <div id="settings-overlay" class="settings-overlay">
@@ -80,12 +122,16 @@ export async function init() {
   const rend = await import("./src/rendering.js");
   const set = await import("./src/settings.js");
   const api = await import("./src/api.js");
+  const cm = await import("./src/contentManager.js")
+  const cons = await import("./src/consists.js")
 
   lang.initLanguage();
   set.initSettings();
   rend.renderMap();
   api.refreshStatuses();
   api.refreshStatusesR();
+  cm.initContentManager();
+  cons.initConsists();
   setInterval(api.refreshStatuses, CONFIG.INTERVAL_MS);
   setInterval(api.refreshStatusesR, CONFIG.INTERVAL_MS);
 }

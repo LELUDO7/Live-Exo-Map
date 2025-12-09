@@ -34,3 +34,21 @@ export async function refreshStatusesR() {
   }
 }
 
+export async function getLineConsists(line){
+  try {
+    const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/consists`, {
+      method: "GET",
+      headers: {
+        cache: "no-store",
+        "X-Consists-Line": line,
+      },
+    });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.warn("Faild to get consists", err);
+    rend.setAllError();
+  }
+}
+
