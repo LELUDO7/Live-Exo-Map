@@ -1,8 +1,7 @@
 // api.js
-const rend = await import("./rendering.js");
+const rend = await import("./map/rendering.js");
 
 export async function refreshStatuses() {
-  
   try {
     const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/stations`, {
       method: "GET",
@@ -34,7 +33,7 @@ export async function refreshStatusesR() {
   }
 }
 
-export async function getLineConsists(line){
+export async function getLineConsists(line) {
   try {
     const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/consists`, {
       method: "GET",
@@ -51,4 +50,3 @@ export async function getLineConsists(line){
     rend.setAllError();
   }
 }
-

@@ -25,6 +25,7 @@ export async function init() {
     <main class="page">
       <section id="map" class="map-section">
         <div id="board" class="board"></div>
+        <div id="realBoard" class="realBoard"></div> 
       </section>
 
       <section class="consists-section" id="consists">
@@ -73,6 +74,16 @@ export async function init() {
           <h2 data-i18n="settings.title">settings</h2>
           <hr />
           <div class="Switch-toggle-container">
+            <p data-i18n="settings.MapType">Map classique</p>
+            <label class="Switch">
+              <input
+                type="checkbox"
+                id="MapTypeSwitch"
+              />
+              <span class="Switch-slider"></span>
+            </label>
+          </div>
+          <div class="Switch-toggle-container">
             <p data-i18n="settings.advanceDetail">Détail avancer</p>
             <label class="Switch">
               <input
@@ -119,11 +130,12 @@ export async function init() {
   `;
 
   const lang = await import("./src/language.js");
-  const rend = await import("./src/rendering.js");
+  const rend = await import("./src/map/rendering.js");
   const set = await import("./src/settings.js");
   const api = await import("./src/api.js");
-  const cm = await import("./src/contentManager.js")
-  const cons = await import("./src/consists.js")
+  const cm = await import("./src/contentManager.js");
+  const cons = await import("./src/consists.js");
+  const realMap = await import("./src/map/realMap.js")
 
   lang.initLanguage();
   set.initSettings();
@@ -132,6 +144,7 @@ export async function init() {
   api.refreshStatusesR();
   cm.initContentManager();
   cons.initConsists();
+  realMap.init()
   setInterval(api.refreshStatuses, CONFIG.INTERVAL_MS);
   setInterval(api.refreshStatusesR, CONFIG.INTERVAL_MS);
 }
