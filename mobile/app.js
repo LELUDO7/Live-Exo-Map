@@ -57,7 +57,7 @@ export async function init() {
       <ul class="stations-list"></ul>  
     </div>
     <footer>
-      <p>© 2025 — MonTrax</p>
+      <p>© 2026 — MonTrax</p>
     </footer>
 
   </main>

@@ -31,7 +31,12 @@ export async function init() {
       <div id="realMap-train-panel" class="realMap-train-panel hidden">
         <button class="panel-close">✕</button>
 
-        <h2 id="realMap-train-panel-title"></h2>
+        <h1 id="realMap-train-panel-title"></h2>
+        <hr class="realMap-train-Panle-line">
+        <h2>Direction :</h2>
+        <h4 id="realMap-train-panel-direction" ></h4> 
+        <h2>Occupation :</h2>
+        <h4 id="realMap-train-panel-occupancy" ></h4> 
         
       </div>
 
@@ -131,7 +136,7 @@ export async function init() {
         </div>
       </section>
       <footer>
-        <p>© 2025 — MonTrax</p>
+        <p>© 2026 — MonTrax</p>
       </footer>
     </main>
   `;

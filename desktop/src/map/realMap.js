@@ -81,19 +81,18 @@ function showStationName() {
 export function displayTrains(trains) {
   markersLayer.clearLayers();
 
-  const pinIcon = L.divIcon({
-    className: "train-pin-marker",
-    html: `
-    <div class="train-pin">
+  trains.forEach((train) => {
+    const pinIcon = L.divIcon({
+      className: "",
+      html: `
+    <div class="train-pin line-${train.line}">
       <img src="/assets/train.svg" class="train-pin-icon" />
     </div>
   `,
-    iconSize: [30, 42],
-    iconAnchor: [15, 42],
-  });
+      iconSize: [30, 42],
+      iconAnchor: [15, 42],
+    });
 
-  console.log(trains);
-  trains.forEach((train) => {
     L.marker([train.position.latitude, train.position.longitude], {
       icon: pinIcon,
     })
@@ -110,14 +109,35 @@ export function displayTrains(trains) {
 }
 
 function openTrainPanel(train) {
-  document.getElementById("realMap-train-panel-title").textContent =
-    train.trip_short_name;
+  document.getElementById(
+    "realMap-train-panel-title"
+  ).textContent = `Train ${train.trip_short_name}`;
+
+  document.getElementById(
+    "realMap-train-panel-direction"
+  ).textContent = `${train.trip_headsign}`;
+
+  document.getElementById(
+    "realMap-train-panel-occupancy"
+  ).textContent = `${train.occupancyStatus}`;
+
+  removePanleLineClass();
 
   panel.classList.remove("hidden");
   panel.classList.add("open");
+
+  panel.classList.add(`line-${train.line}`);
 }
 
 document.querySelector(".panel-close").addEventListener("click", () => {
   panel.classList.remove("open");
   setTimeout(() => panel.classList.add("hidden"), 300);
 });
+
+function removePanleLineClass() {
+  panel.classList.remove("line-1");
+  panel.classList.remove("line-3");
+  panel.classList.remove("line-4");
+  panel.classList.remove("line-5");
+  panel.classList.remove("line-6");
+}

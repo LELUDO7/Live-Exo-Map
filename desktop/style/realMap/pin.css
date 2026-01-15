@@ -1,0 +1,67 @@
+.train-pin {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.train-pin.line-1 {
+  background: var(--line-1);
+}
+
+.train-pin.line-3 {
+  background: var(--line-3);
+}
+
+.train-pin.line-4 {
+  background: var(--line-4);
+}
+
+.train-pin.line-5 {
+  background: var(--line-5);
+}
+
+.train-pin.line-6 {
+  background: var(--line-6);
+}
+
+.train-pin.line-1::after {
+  border-top: 10px solid var(--line-1);
+}
+
+.train-pin.line-3::after {
+  border-top: 10px solid var(--line-3);
+}
+
+.train-pin.line-4::after {
+  border-top: 10px solid var(--line-4);
+}
+
+.train-pin.line-5::after {
+  border-top: 10px solid var(--line-5);
+}
+
+.train-pin.line-6::after {
+  border-top: 10px solid var(--line-6);
+}
+
+.train-pin::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.train-pin-icon {
+  width: 16px;
+  height: 16px;
+  filter: invert(1); /* SVG noir → blanc */
+}
