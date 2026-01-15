@@ -15,7 +15,7 @@ async function loadUI() {
     document.head.insertAdjacentHTML(
       "beforeend",
       `<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-      <link rel="stylesheet" href="./desktop/main.css">
+       <link rel="stylesheet" href="./desktop/main.css">
        <link rel="stylesheet" href="./desktop/style/menu.css">
        <link rel="stylesheet" href="./desktop/style/navbar.css">
        <link rel="stylesheet" href="./desktop/style/settings.css">
