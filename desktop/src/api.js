@@ -1,6 +1,7 @@
 // api.js
 const rend = await import("./map/rendering.js");
 const rm = await import("./map/realMap.js")
+const set = await import("./settings.js");
 
 export async function refreshStatuses() {
   try {
@@ -52,13 +53,13 @@ export async function getLineConsists(line) {
   }
 }
 
-export async function getMovingsTrains(detail) {
+export async function getMovingsTrains() {
   try {
     const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/movings`, {
       method: "GET",
       headers: {
         cache: "no-store",
-        "X-Train-Info": true,
+        "X-Train-Info": set.getRailFanMode(),
       },
     });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);

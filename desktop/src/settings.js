@@ -110,3 +110,18 @@ export function setSettings(railFanMode, railSegmentmode, mapType) {
      localStorage.setItem("rail-segment-mode", railSegmentmode);
    } catch {}
 }
+
+export function getRailFanMode(){
+  let saved_fan_set = (() => {
+    try {
+      return localStorage.getItem("rail-fan-mode");
+    } catch {
+      return null;
+    }
+  })();
+
+  saved_fan_set = saved_fan_set === "true";
+
+  return saved_fan_set;
+
+}

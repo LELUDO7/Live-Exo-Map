@@ -16,28 +16,28 @@
 }
 
 .realMap-train-panel.line-1 {
-    background: var(--line-1);
-    color: #000000;
+  background: var(--line-1);
+  color: #000000;
 }
 
 .realMap-train-panel.line-3 {
-    background: var(--line-3);
-    color: #000000;
+  background: var(--line-3);
+  color: #000000;
 }
 
 .realMap-train-panel.line-4 {
-    background: var(--line-4);
-    color: #000000;
+  background: var(--line-4);
+  color: #000000;
 }
 
 .realMap-train-panel.line-5 {
-    background: var(--line-5);
-    color: #000000;
+  background: var(--line-5);
+  color: #000000;
 }
 
 .realMap-train-panel.line-6 {
-    background: var(--line-6);
-    color: #000000;
+  background: var(--line-6);
+  color: #000000;
 }
 
 .realMap-train-panel.open {
@@ -45,22 +45,34 @@
 }
 
 .realMap-train-Panle-line {
-    border: none;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.498);
-    backdrop-filter: blur(6px);
-    border-radius: 10px;
+  border: none;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.498);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
 }
 
 .realMap-train-panel-close {
-  background: none;
+  margin: 10px 0;
+  padding: 8px 16px;
   border: none;
-  color: white;
-  font-size: 20px;
+  border-radius: 6px;
   cursor: pointer;
+  background: #333;
+  color: white;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.realMap-train-panel-close:hover {
+  background: #b74b4b;
+}
+
+.realMap-train-panel-h-margim {
+  margin-bottom: 2px;
+  font-weight: normal;
 }
 
 .hidden {
   display: none;
 }
-

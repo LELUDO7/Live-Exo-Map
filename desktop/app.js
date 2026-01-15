@@ -29,16 +29,25 @@ export async function init() {
       </section>
 
       <div id="realMap-train-panel" class="realMap-train-panel hidden">
-        <button class="panel-close">✕</button>
+        <button class="realMap-train-panel-close">✕</button>
 
         <h1 id="realMap-train-panel-title"></h2>
         <hr class="realMap-train-Panle-line">
-        <h2>Direction :</h2>
-        <h4 id="realMap-train-panel-direction" ></h4> 
-        <h2 data-i18n="" >Ligne :</h2>
-        <h4 id="realMap-train-panel-line" ></h4> 
-        <h2>Occupation :</h2>
-        <h4 data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
+        <h2>Informations</h2>
+        <h3>Direction :</h3>
+        <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-direction" ></h> 
+        <h3 data-i18n="" >Ligne :</h3>
+        <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-line" ></h4> 
+        <h3>Occupation :</h3>
+        <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
+        <div id="realMap-train-panel-advance-info">
+        <h2>Informations avancées</h2>
+        <h3>Vitesse :</h3>
+        <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-speed" ></h4> 
+        <h3>Position :</h3>
+        <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-latitude" ></h4> 
+        <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-longitude" ></h4> 
+        </div>
         
       </div>
 

@@ -5,6 +5,9 @@ const GLOBAL_COLOR = "#0a689e";
 const markersLayer = L.layerGroup().addTo(map);
 const panel = document.getElementById("realMap-train-panel");
 
+let panelActiveTrain;
+let trainsData;
+
 let geojsonLayer;
 
 map.on("zoomend", showStationName);
@@ -80,6 +83,9 @@ function showStationName() {
 }
 
 export function displayTrains(trains) {
+  trainsData = trains;
+  updateTrainPanel();
+
   markersLayer.clearLayers();
 
   trains.forEach((train) => {
@@ -110,35 +116,22 @@ export function displayTrains(trains) {
 }
 
 function openTrainPanel(train) {
-  document.getElementById(
-    "realMap-train-panel-title"
-  ).textContent = `Train ${train.trip_short_name}`;
+  panelActiveTrain = train;
 
-  document.getElementById(
-    "realMap-train-panel-direction"
-  ).textContent = `${train.trip_headsign}`;
-
-  document
-    .getElementById("realMap-train-panel-occupancy")
-    .setAttribute("data-i18n", OCCUPATION_LEVEL_CLASS[train.occupancyStatus]);
-
-  document.getElementById(
-    "realMap-train-panel-line"
-  ).textContent = `${LINE_NAME[train.line]}`;
-
-  removePanelLineClass();
+  updateTrainPanel();
 
   panel.classList.remove("hidden");
   panel.classList.add("open");
 
-  panel.classList.add(`line-${train.line}`);
   lang.initLanguage();
 }
 
-document.querySelector(".panel-close").addEventListener("click", () => {
-  panel.classList.remove("open");
-  setTimeout(() => panel.classList.add("hidden"), 300);
-});
+document
+  .querySelector(".realMap-train-panel-close")
+  .addEventListener("click", () => {
+    panel.classList.remove("open");
+    setTimeout(() => panel.classList.add("hidden"), 300);
+  });
 
 function removePanelLineClass() {
   panel.classList.remove("line-1");
@@ -146,6 +139,60 @@ function removePanelLineClass() {
   panel.classList.remove("line-4");
   panel.classList.remove("line-5");
   panel.classList.remove("line-6");
+}
+
+function updateTrainPanel() {
+  if (panelActiveTrain) {
+    trainsData.forEach((train) => {
+      if (train.trip_short_name == panelActiveTrain.trip_short_name) {
+        panelActiveTrain = train;
+      }
+    });
+
+    removePanelLineClass();
+
+    panel.classList.add(`line-${panelActiveTrain.line}`);
+
+    document.getElementById(
+      "realMap-train-panel-title"
+    ).textContent = `Train ${panelActiveTrain.trip_short_name}`;
+
+    document.getElementById(
+      "realMap-train-panel-direction"
+    ).textContent = `${panelActiveTrain.trip_headsign}`;
+
+    document
+      .getElementById("realMap-train-panel-occupancy")
+      .setAttribute(
+        "data-i18n",
+        OCCUPATION_LEVEL_CLASS[panelActiveTrain.occupancyStatus]
+      );
+
+    document.getElementById("realMap-train-panel-line").textContent = `${
+      LINE_NAME[panelActiveTrain.line]
+    }`;
+
+    if (panelActiveTrain.train_details) {
+      document.getElementById("realMap-train-panel-advance-info").className =
+        "";
+      document.getElementById("realMap-train-panel-speed").textContent = `${(
+        panelActiveTrain.train_details.speed * 3.6
+      ).toFixed(2)} km/h`;
+
+      document.getElementById(
+        "realMap-train-panel-latitude"
+      ).textContent = `${panelActiveTrain.position.latitude.toFixed(2)} degrés`;
+
+      document.getElementById(
+        "realMap-train-panel-longitude"
+      ).textContent = `${panelActiveTrain.position.longitude.toFixed(
+        2
+      )} degrés`;
+    } else {
+      document.getElementById("realMap-train-panel-advance-info").className =
+        "hidden";
+    }
+  }
 }
 
 const OCCUPATION_LEVEL_CLASS = {
