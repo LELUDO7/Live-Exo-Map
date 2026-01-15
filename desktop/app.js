@@ -28,6 +28,13 @@ export async function init() {
         <div id="realBoard" class="realBoard"></div> 
       </section>
 
+      <div id="realMap-train-panel" class="realMap-train-panel hidden">
+        <button class="panel-close">✕</button>
+
+        <h2 id="realMap-train-panel-title"></h2>
+        
+      </div>
+
       <section class="consists-section" id="consists">
         <div class="container">
           <h1 data-i18n="consists" >Consists</h1>
@@ -135,16 +142,18 @@ export async function init() {
   const api = await import("./src/api.js");
   const cm = await import("./src/contentManager.js");
   const cons = await import("./src/consists.js");
-  const realMap = await import("./src/map/realMap.js")
+  const realMap = await import("./src/map/realMap.js");
 
   lang.initLanguage();
   set.initSettings();
   rend.renderMap();
   api.refreshStatuses();
   api.refreshStatusesR();
+  api.getMovingsTrains();
   cm.initContentManager();
   cons.initConsists();
-  realMap.init()
+  realMap.init();
   setInterval(api.refreshStatuses, CONFIG.INTERVAL_MS);
   setInterval(api.refreshStatusesR, CONFIG.INTERVAL_MS);
+  setInterval(api.getMovingsTrains, CONFIG.INTERVAL_MS);
 }

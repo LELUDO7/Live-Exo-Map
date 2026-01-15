@@ -1,7 +1,12 @@
 const map = L.map("realBoard").setView([45.5, -73.6], 10);
 const GLOBAL_COLOR = "#0a689e";
 
+const markersLayer = L.layerGroup().addTo(map);
+const panel = document.getElementById("realMap-train-panel");
+
 let geojsonLayer;
+
+map.on("zoomend", showStationName);
 
 export function init() {
   L.maptiler
@@ -16,7 +21,6 @@ export function init() {
     .then((r) => r.json())
     .then((data) => {
       geojsonLayer = L.geoJSON(data, {
-
         // Line
         style: (feature) => {
           if (feature.geometry.type.includes("Line")) {
@@ -28,7 +32,7 @@ export function init() {
           }
         },
 
-        // Station 
+        // Station
         pointToLayer: (feature, latlng) => {
           const marker = L.circleMarker(latlng, {
             radius: 1,
@@ -54,7 +58,6 @@ export function init() {
         },
       }).addTo(map);
 
-      // 🔴 ICI est le BON ENDROIT : fermer les labels au chargement
       geojsonLayer.eachLayer((layer) => {
         if (layer.feature.geometry.type === "Point" && layer.getTooltip()) {
           layer.closeTooltip();
@@ -75,4 +78,46 @@ function showStationName() {
   });
 }
 
-map.on("zoomend", showStationName);
+export function displayTrains(trains) {
+  markersLayer.clearLayers();
+
+  const pinIcon = L.divIcon({
+    className: "train-pin-marker",
+    html: `
+    <div class="train-pin">
+      <img src="/assets/train.svg" class="train-pin-icon" />
+    </div>
+  `,
+    iconSize: [30, 42],
+    iconAnchor: [15, 42],
+  });
+
+  console.log(trains);
+  trains.forEach((train) => {
+    L.marker([train.position.latitude, train.position.longitude], {
+      icon: pinIcon,
+    })
+      .addTo(markersLayer)
+      .bindTooltip(`<strong>Train ${train.trip_short_name}</strong><br>`, {
+        direction: "top",
+        className: "train-tooltip",
+        sticky: true,
+      })
+      .on("click", () => {
+        openTrainPanel(train);
+      });
+  });
+}
+
+function openTrainPanel(train) {
+  document.getElementById("realMap-train-panel-title").textContent =
+    train.trip_short_name;
+
+  panel.classList.remove("hidden");
+  panel.classList.add("open");
+}
+
+document.querySelector(".panel-close").addEventListener("click", () => {
+  panel.classList.remove("open");
+  setTimeout(() => panel.classList.add("hidden"), 300);
+});

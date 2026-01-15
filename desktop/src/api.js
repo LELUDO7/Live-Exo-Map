@@ -1,5 +1,6 @@
 // api.js
 const rend = await import("./map/rendering.js");
+const rm = await import("./map/realMap.js")
 
 export async function refreshStatuses() {
   try {
@@ -45,6 +46,25 @@ export async function getLineConsists(line) {
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     const data = await res.json();
     return data;
+  } catch (err) {
+    console.warn("Faild to get consists", err);
+    rend.setAllError();
+  }
+}
+
+export async function getMovingsTrains(detail) {
+  try {
+    const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/movings`, {
+      method: "GET",
+      headers: {
+        cache: "no-store",
+        "X-Train-Info": true,
+      },
+    });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    const data = await res.json();
+
+    rm.displayTrains(data);
   } catch (err) {
     console.warn("Faild to get consists", err);
     rend.setAllError();
