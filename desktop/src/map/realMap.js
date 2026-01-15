@@ -1,3 +1,4 @@
+const lang = await import("../language.js");
 const map = L.map("realBoard").setView([45.5, -73.6], 10);
 const GLOBAL_COLOR = "#0a689e";
 
@@ -117,16 +118,21 @@ function openTrainPanel(train) {
     "realMap-train-panel-direction"
   ).textContent = `${train.trip_headsign}`;
 
-  document.getElementById(
-    "realMap-train-panel-occupancy"
-  ).textContent = `${train.occupancyStatus}`;
+  document
+    .getElementById("realMap-train-panel-occupancy")
+    .setAttribute("data-i18n", OCCUPATION_LEVEL_CLASS[train.occupancyStatus]);
 
-  removePanleLineClass();
+  document.getElementById(
+    "realMap-train-panel-line"
+  ).textContent = `${LINE_NAME[train.line]}`;
+
+  removePanelLineClass();
 
   panel.classList.remove("hidden");
   panel.classList.add("open");
 
   panel.classList.add(`line-${train.line}`);
+  lang.initLanguage();
 }
 
 document.querySelector(".panel-close").addEventListener("click", () => {
@@ -134,10 +140,28 @@ document.querySelector(".panel-close").addEventListener("click", () => {
   setTimeout(() => panel.classList.add("hidden"), 300);
 });
 
-function removePanleLineClass() {
+function removePanelLineClass() {
   panel.classList.remove("line-1");
   panel.classList.remove("line-3");
   panel.classList.remove("line-4");
   panel.classList.remove("line-5");
   panel.classList.remove("line-6");
 }
+
+const OCCUPATION_LEVEL_CLASS = {
+  0: "menu.occupation.empty",
+  1: "menu.occupation.manyseat",
+  2: "menu.occupation.fewseat",
+  3: "menu.occupation.standing",
+  4: "menu.occupation.crushstanding",
+  5: "menu.occupation.full",
+  6: "menu.occupation.nopassanger",
+};
+
+const LINE_NAME = {
+  1: "11 (Vaudreuil)",
+  3: "13 (Mont-Saint-Hilaire)",
+  4: "12 (Saint-Jérôme)",
+  5: "14 (Candiac)",
+  6: "15 (Mascouche)",
+};

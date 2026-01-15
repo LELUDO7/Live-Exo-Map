@@ -35,8 +35,10 @@ export async function init() {
         <hr class="realMap-train-Panle-line">
         <h2>Direction :</h2>
         <h4 id="realMap-train-panel-direction" ></h4> 
+        <h2 data-i18n="" >Ligne :</h2>
+        <h4 id="realMap-train-panel-line" ></h4> 
         <h2>Occupation :</h2>
-        <h4 id="realMap-train-panel-occupancy" ></h4> 
+        <h4 data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
         
       </div>
 
@@ -162,3 +164,5 @@ export async function init() {
   setInterval(api.refreshStatusesR, CONFIG.INTERVAL_MS);
   setInterval(api.getMovingsTrains, CONFIG.INTERVAL_MS);
 }
+
+
