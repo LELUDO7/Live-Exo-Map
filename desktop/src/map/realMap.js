@@ -1,5 +1,5 @@
 const lang = await import("../language.js");
-const map = L.map("realBoard").setView([45.5, -73.6], 10);
+const map = L.map("realMap").setView([45.5, -73.6], 10);
 const GLOBAL_COLOR = "#0a689e";
 
 const markersLayer = L.layerGroup().addTo(map);
@@ -121,16 +121,12 @@ function openTrainPanel(train) {
   updateTrainPanel();
 
   panel.classList.remove("hidden");
-  panel.classList.add("open");
-
-  lang.initLanguage();
 }
 
 document
-  .querySelector(".realMap-train-panel-close")
+  .querySelector(".realMap-train-panel-close-btn")
   .addEventListener("click", () => {
-    panel.classList.remove("open");
-    setTimeout(() => panel.classList.add("hidden"), 300);
+    panel.classList.add("hidden");
   });
 
 function removePanelLineClass() {
@@ -173,8 +169,11 @@ function updateTrainPanel() {
     }`;
 
     if (panelActiveTrain.train_details) {
+      const table = document.createElement("table");
+
       document.getElementById("realMap-train-panel-advance-info").className =
         "";
+
       document.getElementById("realMap-train-panel-speed").textContent = `${(
         panelActiveTrain.train_details.speed * 3.6
       ).toFixed(2)} km/h`;
@@ -188,11 +187,32 @@ function updateTrainPanel() {
       ).textContent = `${panelActiveTrain.position.longitude.toFixed(
         2
       )} degrés`;
+
+      table.innerHTML = `
+      <tr>
+      <th data-i18n="menu.order" ></th>
+      <th>Id</th> 
+      <th data-i18n="menu.model" ></th> 
+      </tr>`;
+
+      for (const wagon of panelActiveTrain.train_details.consists) {
+        const wagonDetail = document.createElement("tr");
+        wagonDetail.innerHTML = `<td> ${wagon.carriageSequence}</td> <td>  ${
+          wagon.id
+        } </td> <td> ${WAGON_MODEL_NAME[wagon.model_id]} </td>`;
+        table.appendChild(wagonDetail);
+      }
+
+      document.getElementById("realMap-train-panel-consists").innerHTML="";
+      document.getElementById("realMap-train-panel-consists").appendChild(table)
+      
     } else {
       document.getElementById("realMap-train-panel-advance-info").className =
         "hidden";
     }
   }
+
+  lang.initLanguage();
 }
 
 const OCCUPATION_LEVEL_CLASS = {

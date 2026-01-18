@@ -1,13 +1,10 @@
-#realBoard {
-  height: 80vh;
-  width: 90%;
+.realBoard {
+  width: min(95vw, 1200px);
 }
 
-.realBoard {
-  position: relative;
-  width: min(95vw, 1200px);
-  aspect-ratio: 210 / 210;
-  background-size: contain;
+.realMap {
+  height: 720px;
+  width: 100%;
   outline: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   z-index: 1;

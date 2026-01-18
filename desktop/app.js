@@ -24,32 +24,40 @@ export async function init() {
 
     <main class="page">
       <section id="map" class="map-section">
-        <div id="board" class="board"></div>
-        <div id="realBoard" class="realBoard"></div> 
+          <div id="board" class="board"></div>
+          <div id="realBoard" class="realBoard">
+            <div id="realMap" class="realMap"></div>
+            <div id="realMap-train-panel" class="realMap-train-panel hidden">
+              <div class="realMap-train-panel-head">
+                <h1 id="realMap-train-panel-title"></h1>
+                <button class="realMap-train-panel-close-btn">✕</button>
+              </div>
+              
+              <hr class="realMap-train-Panle-line">
+              <h2>Informations</h2>
+              <h3>Direction :</h3>
+              <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-direction" ></h> 
+              <h3 data-i18n="" >Ligne :</h3>
+              <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-line" ></h4> 
+              <h3>Occupation :</h3>
+              <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
+
+              <div id="realMap-train-panel-advance-info">
+                <h2>Informations avancées</h2>
+                <h3>Vitesse :</h3>
+                <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-speed" ></h4> 
+                <h3>Position :</h3>
+                <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-latitude" ></h4> 
+                <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-longitude" ></h4> 
+                <h3 data-i18n="" >Composition :</h3>
+                <div id="realMap-train-panel-consists"></div>
+              </div>
+            
+            </div>
+
+          </div> 
       </section>
 
-      <div id="realMap-train-panel" class="realMap-train-panel hidden">
-        <button class="realMap-train-panel-close">✕</button>
-
-        <h1 id="realMap-train-panel-title"></h2>
-        <hr class="realMap-train-Panle-line">
-        <h2>Informations</h2>
-        <h3>Direction :</h3>
-        <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-direction" ></h> 
-        <h3 data-i18n="" >Ligne :</h3>
-        <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-line" ></h4> 
-        <h3>Occupation :</h3>
-        <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
-        <div id="realMap-train-panel-advance-info">
-        <h2>Informations avancées</h2>
-        <h3>Vitesse :</h3>
-        <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-speed" ></h4> 
-        <h3>Position :</h3>
-        <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-latitude" ></h4> 
-        <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-longitude" ></h4> 
-        </div>
-        
-      </div>
 
       <section class="consists-section" id="consists">
         <div class="container">
@@ -173,5 +181,3 @@ export async function init() {
   setInterval(api.refreshStatusesR, CONFIG.INTERVAL_MS);
   setInterval(api.getMovingsTrains, CONFIG.INTERVAL_MS);
 }
-
-
