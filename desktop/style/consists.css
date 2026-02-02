@@ -1,54 +1,109 @@
 .consists-table {
-    border: 1px solid ;
-    padding: 8px;
-    border-radius: 6px;
+  border: 1px solid;
+  padding: 8px;
+  border-radius: 6px;
 }
 
 .consists-line-1 {
-    background: #F26178c3;
-    color: #000000;
+  background: #f26178c3;
+  color: #000000;
 }
 
 .consists-line-3 {
-    background: #9A98C8c3;
-    color: #000000;
+  background: #9a98c8c3;
+  color: #000000;
 }
 
 .consists-line-4 {
-    background: #FFDF7Fc3;
-    color: #000000;
+  background: #ffdf7fc3;
+  color: #000000;
 }
 
 .consists-line-5 {
-    background: #57B6B2c3;
-    color: #000000;
+  background: #57b6b2c3;
+  color: #000000;
 }
 
 .consists-line-6 {
-    background: #CC5599c3;
-    color: #000000;
+  background: #cc5599c3;
+  color: #000000;
 }
 
 .consists-section {
-    padding: 24px 0 48px;
+  padding: 24px 0 48px;
 }
 
 .consists-line {
-    border: none;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(6px);
-    border-radius: 10px;
+  border: none;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
 }
 
-.a-schedule-link  {
-    color: var(--text);
-    text-decoration: none;
-    margin-right: 16px;
-    opacity: 0.9;
+.a-schedule-link {
+  color: var(--text);
+  text-decoration: none;
+  margin-right: 16px;
+  opacity: 0.9;
 }
 
 .a-schedule-link :hover {
-    opacity: 1;
-    text-decoration: underline;
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.consists-section-line-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrow {
+  font-size: x-large;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.consists-section-line-head.open .arrow {
+  transform: rotate(90deg);
+}
+
+.consists-section-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="date"] {
+  opacity: 1;
+  padding: 1px 8px;
+  font-size: 15px;
+
+  border: 1.5px solid #ffffff;
+  border-radius: 10px;
+
+  background-color: #101010;
+  color: #f9f9f9;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#consists-line-1-table {
+  display: none;
+}
+
+#consists-line-3-table {
+  display: none;
+}
+
+#consists-line-4-table {
+  display: none;
+}
+
+#consists-line-5-table {
+  display: none;
+}
+
+#consists-line-6-table {
+  display: none;
 }
