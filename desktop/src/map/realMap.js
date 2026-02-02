@@ -167,7 +167,7 @@ export function updateTrainPanel() {
       if (station.id == panelActiveTrain.stationId) {
         document.getElementById(
           "realMap-train-panel-status-name"
-        ).textContent = `\u00A0${station.name}`;
+        ).textContent = `${station.name}`;
       }
     });
 

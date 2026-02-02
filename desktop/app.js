@@ -40,10 +40,8 @@ export async function init() {
                 <h3 data-i18n="realmap.panel.line" >Ligne :</h3>
                 <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-line" ></h4> 
                 <h3 data-i18n="realmap.panel.status" >Statue :</h3>
-                <div class="realMap-train-panel-status-container">
-                  <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-status" >adadada</h4>
-                  <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-status-name" >dasdad</h4>
-                </div>
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-status" >adadada</h4>
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-status-name" >dasdad</h4>
                 <h3>Occupation :</h3>
                 <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
                 <div id="realMap-train-panel-advance-info">
