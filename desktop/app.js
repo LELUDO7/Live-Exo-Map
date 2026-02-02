@@ -28,29 +28,33 @@ export async function init() {
           <div id="realBoard" class="realBoard">
             <div id="realMap" class="realMap"></div>
             <div id="realMap-train-panel" class="realMap-train-panel hidden">
-              <div class="realMap-train-panel-head">
+              <div class="realMap-train-panel-head" id="realMap-train-panel-head">
                 <h1 id="realMap-train-panel-title"></h1>
                 <button class="realMap-train-panel-close-btn">✕</button>
               </div>
               
-              <hr class="realMap-train-Panle-line">
-              <h2>Informations</h2>
-              <h3>Direction :</h3>
-              <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-direction" ></h> 
-              <h3 data-i18n="" >Ligne :</h3>
-              <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-line" ></h4> 
-              <h3>Occupation :</h3>
-              <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
-
-              <div id="realMap-train-panel-advance-info">
-                <h2>Informations avancées</h2>
-                <h3>Vitesse :</h3>
-                <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-speed" ></h4> 
-                <h3>Position :</h3>
-                <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-latitude" ></h4> 
-                <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-longitude" ></h4> 
-                <h3 data-i18n="" >Composition :</h3>
-                <div id="realMap-train-panel-consists"></div>
+              <div class="realMap-train-panel-body">
+                <h2>Informations</h2>
+                <h3>Direction :</h3>
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-direction" ></h> 
+                <h3 data-i18n="realmap.panel.line" >Ligne :</h3>
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-line" ></h4> 
+                <h3 data-i18n="realmap.panel.status" >Statue :</h3>
+                <div class="realMap-train-panel-status-container">
+                  <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-status" >adadada</h4>
+                  <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-status-name" >dasdad</h4>
+                </div>
+                <h3>Occupation :</h3>
+                <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
+                <div id="realMap-train-panel-advance-info">
+                  <h2 data-i18n="realmap.panel.advance.info">Informations avancées</h2>
+                  <h3 data-i18n="realmap.panel.advance.info.speed">Vitesse :</h3>
+                  <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-speed" ></h4> 
+                  <h3 >Position :</h3>
+                  <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-position" ></h4> 
+                  <h3 class="realMap-train-panel-composition-title" data-i18n="" >Composition :</h3>
+                  <div id="realMap-train-panel-consists"></div>
+                </div>
               </div>
             
             </div>

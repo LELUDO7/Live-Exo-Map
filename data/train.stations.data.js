@@ -49,12 +49,12 @@ const POINTS_CONFIG  = [
 
   // Ligne 3 Mont Saint-Hilaire 
   { id: "MTL5-3", parent_id: "", status:"offline", top: 65.9, left: 70.4, name: "Gare Central"},
-  { id: "STL1-3", parent_id: "MTL5-3", status:"offline", top: 67.5, left: 83.45, name: "Saint-Lambert"},
-  { id: "STH3-3", parent_id: "STL1-3", status:"offline", top: 65.6, left: 85.3, name: "Longueuil-Saint-Hubert"},
-  { id: "STB2-3", parent_id: "STH3-3", status:"offline", top: 63.9, left: 87.02, name: "Saint-Bruno"},
-  { id: "SBA2-3", parent_id: "STB2-3", status:"offline", top: 62.1, left: 88.85, name: "Saint-Basile-le-Grand"},
-  { id: "MMS1-3", parent_id: "SBA2-3", status:"offline", top: 60.4, left: 90.6, name: "McMasterville"},
-  { id: "MSH1-3", parent_id: "MMS1-3", status:"offline", top: 58.65, left: 92.3, name: "Mont-Saint-Hilaire"},
+  { id: "STL1-3", parent_id: "MTL5-3", status:"offline", top: 67.5, left: 83.45, name: "Gare Saint-Lambert"},
+  { id: "STH3-3", parent_id: "STL1-3", status:"offline", top: 65.6, left: 85.3, name: "Gare Longueuil-Saint-Hubert"},
+  { id: "STB2-3", parent_id: "STH3-3", status:"offline", top: 63.9, left: 87.02, name: "Gare Saint-Bruno"},
+  { id: "SBA2-3", parent_id: "STB2-3", status:"offline", top: 62.1, left: 88.85, name: "Gare Saint-Basile-le-Grand"},
+  { id: "MMS1-3", parent_id: "SBA2-3", status:"offline", top: 60.4, left: 90.6, name: "Gare McMasterville"},
+  { id: "MSH1-3", parent_id: "MMS1-3", status:"offline", top: 58.65, left: 92.3, name: "Gare Mont-Saint-Hilaire"},
 
   // Ligne 6 Mascouche  
   { id: "MTL5-6", parent_id: "", status:"offline", top: 66.6, left: 69.8, name: "Gare Central"},

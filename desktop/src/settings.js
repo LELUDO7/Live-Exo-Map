@@ -1,4 +1,6 @@
 //settings.js
+const api = await import("./api.js");
+
 export function initSettings() {
   let saved_fan_set = (() => {
     try {
@@ -109,6 +111,8 @@ export function setSettings(railFanMode, railSegmentmode, mapType) {
    try {
      localStorage.setItem("rail-segment-mode", railSegmentmode);
    } catch {}
+
+   api.getMovingsTrains();
 }
 
 export function getRailFanMode(){

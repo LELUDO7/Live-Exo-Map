@@ -1,46 +1,57 @@
 .realMap-train-panel {
   width: 50vh;
-  height: 700px;
-  outline: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  padding: 10px;
-  margin-left: 5px;
-  background: #111;
-  overflow: auto;
+   margin-left: 5px;
 }
 
 .realMap-train-panel-head {
   display: flex; 
   align-items: center;
   justify-content: space-between;
+  outline: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 10px;
+  overflow: auto;
+  margin-bottom: 5px;
+  height: 40px;
 }
 
-.realMap-train-panel.line-1 {
+.realMap-train-panel-body{
+  outline: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 10px;
+  overflow: auto;
+  height: 635px;
+  background-color: var(--Montrax-Color);
+}
+
+
+
+.realMap-train-panel-head.line-1 {
   background: var(--line-1);
   color: #000000;
 }
 
-.realMap-train-panel.line-3 {
+.realMap-train-panel-head.line-3 {
   background: var(--line-3);
   color: #000000;
 }
 
-.realMap-train-panel.line-4 {
+.realMap-train-panel-head.line-4 {
   background: var(--line-4);
   color: #000000;
 }
 
-.realMap-train-panel.line-5 {
+.realMap-train-panel-head.line-5 {
   background: var(--line-5);
   color: #000000;
 }
 
-.realMap-train-panel.line-6 {
+.realMap-train-panel-head.line-6 {
   background: var(--line-6);
   color: #000000;
 }
 
-.realMap-train-Panle-line {
+.realMap-train-Panel-line {
   border: none;
   height: 2px;
   background: rgba(255, 255, 255, 0.498);
@@ -65,6 +76,14 @@
 .realMap-train-panel-h-margim {
   margin-bottom: 2px;
   font-weight: normal;
+}
+
+.realMap-train-panel-status-container {
+  display: flex;
+}
+
+.realMap-train-panel-composition-title {
+  margin-bottom: 2px;
 }
 
 .hidden {

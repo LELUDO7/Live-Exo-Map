@@ -4,6 +4,8 @@ const GLOBAL_COLOR = "#0a689e";
 
 const markersLayer = L.layerGroup().addTo(map);
 const panel = document.getElementById("realMap-train-panel");
+const panelHead = document.getElementById("realMap-train-panel-head");
+const panelBody = document.getElementById("realMap-train-panel-body");
 
 let panelActiveTrain;
 let trainsData;
@@ -11,6 +13,12 @@ let trainsData;
 let geojsonLayer;
 
 map.on("zoomend", showStationName);
+
+document
+  .querySelector(".realMap-train-panel-close-btn")
+  .addEventListener("click", () => {
+    panel.classList.add("hidden");
+  });
 
 export function init() {
   L.maptiler
@@ -123,21 +131,8 @@ function openTrainPanel(train) {
   panel.classList.remove("hidden");
 }
 
-document
-  .querySelector(".realMap-train-panel-close-btn")
-  .addEventListener("click", () => {
-    panel.classList.add("hidden");
-  });
 
-function removePanelLineClass() {
-  panel.classList.remove("line-1");
-  panel.classList.remove("line-3");
-  panel.classList.remove("line-4");
-  panel.classList.remove("line-5");
-  panel.classList.remove("line-6");
-}
-
-function updateTrainPanel() {
+export function updateTrainPanel() {
   if (panelActiveTrain) {
     trainsData.forEach((train) => {
       if (train.trip_short_name == panelActiveTrain.trip_short_name) {
@@ -145,9 +140,9 @@ function updateTrainPanel() {
       }
     });
 
-    removePanelLineClass();
+    removePanelHeadLineClass();
 
-    panel.classList.add(`line-${panelActiveTrain.line}`);
+    panelHead.classList.add(`line-${panelActiveTrain.line}`);
 
     document.getElementById(
       "realMap-train-panel-title"
@@ -168,6 +163,18 @@ function updateTrainPanel() {
       LINE_NAME[panelActiveTrain.line]
     }`;
 
+    POINTS_CONFIG.forEach((station) => {
+      if (station.id == panelActiveTrain.stationId) {
+        document.getElementById(
+          "realMap-train-panel-status-name"
+        ).textContent = `\u00A0${station.name}`;
+      }
+    });
+
+    document
+      .getElementById("realMap-train-panel-status")
+      .setAttribute("data-i18n", `realmap.panel.${panelActiveTrain.status}`);
+
     if (panelActiveTrain.train_details) {
       const table = document.createElement("table");
 
@@ -179,14 +186,10 @@ function updateTrainPanel() {
       ).toFixed(2)} km/h`;
 
       document.getElementById(
-        "realMap-train-panel-latitude"
-      ).textContent = `${panelActiveTrain.position.latitude.toFixed(2)} degrés`;
-
-      document.getElementById(
-        "realMap-train-panel-longitude"
-      ).textContent = `${panelActiveTrain.position.longitude.toFixed(
+        "realMap-train-panel-position"
+      ).textContent = `${panelActiveTrain.position.latitude.toFixed(
         2
-      )} degrés`;
+      )}, ${panelActiveTrain.position.longitude.toFixed(2)}`;
 
       table.innerHTML = `
       <tr>
@@ -203,9 +206,10 @@ function updateTrainPanel() {
         table.appendChild(wagonDetail);
       }
 
-      document.getElementById("realMap-train-panel-consists").innerHTML="";
-      document.getElementById("realMap-train-panel-consists").appendChild(table)
-      
+      document.getElementById("realMap-train-panel-consists").innerHTML = "";
+      document
+        .getElementById("realMap-train-panel-consists")
+        .appendChild(table);
     } else {
       document.getElementById("realMap-train-panel-advance-info").className =
         "hidden";
@@ -213,6 +217,14 @@ function updateTrainPanel() {
   }
 
   lang.initLanguage();
+}
+
+function removePanelHeadLineClass() {
+  panelHead.classList.remove("line-1");
+  panelHead.classList.remove("line-3");
+  panelHead.classList.remove("line-4");
+  panelHead.classList.remove("line-5");
+  panelHead.classList.remove("line-6");
 }
 
 const OCCUPATION_LEVEL_CLASS = {
