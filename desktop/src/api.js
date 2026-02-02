@@ -1,8 +1,9 @@
 // api.js
-const rend = await import("./rendering.js");
+const rend = await import("./map/rendering.js");
+const rm = await import("./map/realMap.js")
+const set = await import("./settings.js");
 
 export async function refreshStatuses() {
-  
   try {
     const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/stations`, {
       method: "GET",
@@ -34,7 +35,7 @@ export async function refreshStatusesR() {
   }
 }
 
-export async function getLineConsists(line){
+export async function getLineConsists(line) {
   try {
     const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/consists`, {
       method: "GET",
@@ -52,3 +53,21 @@ export async function getLineConsists(line){
   }
 }
 
+export async function getMovingsTrains() {
+  try {
+    const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/movings`, {
+      method: "GET",
+      headers: {
+        cache: "no-store",
+        "X-Train-Info": set.getRailFanMode(),
+      },
+    });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    const data = await res.json();
+
+    rm.displayTrains(data);
+  } catch (err) {
+    console.warn("Faild to get consists", err);
+    rend.setAllError();
+  }
+}

@@ -1,9 +1,8 @@
 //rendering.js
-const lang = await import("./language.js");
-const set = await import("./settings.js");
+const lang = await import("../language.js");
+const set = await import("../settings.js");
 const board = document.getElementById("board");
 const dotsById = new Map();
-
 
 export function renderMap() {
   POINTS_CONFIG.forEach((pt) => {

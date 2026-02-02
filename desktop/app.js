@@ -24,8 +24,42 @@ export async function init() {
 
     <main class="page">
       <section id="map" class="map-section">
-        <div id="board" class="board"></div>
+          <div id="board" class="board"></div>
+          <div id="realBoard" class="realBoard">
+            <div id="realMap" class="realMap"></div>
+            <div id="realMap-train-panel" class="realMap-train-panel hidden">
+              <div class="realMap-train-panel-head" id="realMap-train-panel-head">
+                <h1 id="realMap-train-panel-title"></h1>
+                <button class="realMap-train-panel-close-btn">✕</button>
+              </div>
+              
+              <div class="realMap-train-panel-body">
+                <h2>Informations</h2>
+                <h3>Direction :</h3>
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-direction" ></h> 
+                <h3 data-i18n="realmap.panel.line" >Ligne :</h3>
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-line" ></h4> 
+                <h3 data-i18n="realmap.panel.status" >Statue :</h3>
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-status" >adadada</h4>
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-status-name" >dasdad</h4>
+                <h3>Occupation :</h3>
+                <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-occupancy" ></h4> 
+                <div id="realMap-train-panel-advance-info">
+                  <h2 data-i18n="realmap.panel.advance.info">Informations avancées</h2>
+                  <h3 data-i18n="realmap.panel.advance.info.speed">Vitesse :</h3>
+                  <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-speed" ></h4> 
+                  <h3 >Position :</h3>
+                  <h4 class="realMap-train-panel-h-margim" data-i18n="" id="realMap-train-panel-position" ></h4> 
+                  <h3 class="realMap-train-panel-composition-title" data-i18n="" >Composition :</h3>
+                  <div id="realMap-train-panel-consists"></div>
+                </div>
+              </div>
+            
+            </div>
+
+          </div> 
       </section>
+
 
       <section class="consists-section" id="consists">
         <div class="container">
@@ -73,6 +107,16 @@ export async function init() {
           <h2 data-i18n="settings.title">settings</h2>
           <hr />
           <div class="Switch-toggle-container">
+            <p data-i18n="settings.MapType">Map classique</p>
+            <label class="Switch">
+              <input
+                type="checkbox"
+                id="MapTypeSwitch"
+              />
+              <span class="Switch-slider"></span>
+            </label>
+          </div>
+          <div class="Switch-toggle-container">
             <p data-i18n="settings.advanceDetail">Détail avancer</p>
             <label class="Switch">
               <input
@@ -113,25 +157,29 @@ export async function init() {
         </div>
       </section>
       <footer>
-        <p>© 2025 — MonTrax</p>
+        <p>© 2026 — MonTrax</p>
       </footer>
     </main>
   `;
 
   const lang = await import("./src/language.js");
-  const rend = await import("./src/rendering.js");
+  const rend = await import("./src/map/rendering.js");
   const set = await import("./src/settings.js");
   const api = await import("./src/api.js");
-  const cm = await import("./src/contentManager.js")
-  const cons = await import("./src/consists.js")
+  const cm = await import("./src/contentManager.js");
+  const cons = await import("./src/consists.js");
+  const realMap = await import("./src/map/realMap.js");
 
   lang.initLanguage();
   set.initSettings();
   rend.renderMap();
   api.refreshStatuses();
   api.refreshStatusesR();
+  api.getMovingsTrains();
   cm.initContentManager();
   cons.initConsists();
+  realMap.init();
   setInterval(api.refreshStatuses, CONFIG.INTERVAL_MS);
   setInterval(api.refreshStatusesR, CONFIG.INTERVAL_MS);
+  setInterval(api.getMovingsTrains, CONFIG.INTERVAL_MS);
 }

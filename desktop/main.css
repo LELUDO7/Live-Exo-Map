@@ -1,15 +1,3 @@
-:root {
-    --size: 6px;
-    --size_r: 4px;
-    --outline: 2px;
-    --outline_r: 1px;
-    --transition: 200ms ease;
-    --bg-around: #000;
-    --glass: rgba(20, 20, 24, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.12);
-    --text: #fff;
-}
-
 html,body {
 
     background: var(--bg-around);

@@ -8,6 +8,7 @@
     backdrop-filter: blur(8px);
     background: #1f1f1f83;
     border-bottom: 1px solid var(--glass-border);
+    z-index: 1000;
 }
 
 .container {
