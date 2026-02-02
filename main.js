@@ -27,6 +27,7 @@ async function loadUI() {
     const app = await import("./desktop/app.js?v=4");
    
     app.init(); 
+ 
   }
 }
 

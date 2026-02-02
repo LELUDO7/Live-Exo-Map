@@ -36,7 +36,7 @@ export async function init() {
               <div class="realMap-train-panel-body">
                 <h2>Informations</h2>
                 <h3>Direction :</h3>
-                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-direction" ></h> 
+                <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-direction" ></h4> 
                 <h3 data-i18n="realmap.panel.line" >Ligne :</h3>
                 <h4 class="realMap-train-panel-h-margim" id="realMap-train-panel-line" ></h4> 
                 <h3 data-i18n="realmap.panel.status" >Statue :</h3>
@@ -163,23 +163,31 @@ export async function init() {
   `;
 
   const lang = await import("./src/language.js?v=4");
+
   const rend = await import("./src/map/rendering.js?v=4");
-  const set = await import("./src/settings.js?v=4");
   const api = await import("./src/api.js?v=4");
   const cm = await import("./src/contentManager.js?v=4");
   const cons = await import("./src/consists.js?v=4");
   const realMap = await import("./src/map/realMap.js");
+  const set = await import("./src/settings.js?v=4");
 
-  lang.initLanguage();
   set.initSettings();
+  lang.initLanguage();
+  realMap.init();
   rend.renderMap();
   api.refreshStatuses();
+
   api.refreshStatusesR();
   api.getMovingsTrains();
   cm.initContentManager();
   cons.initConsists();
-  realMap.init();
+
   setInterval(api.refreshStatuses, CONFIG.INTERVAL_MS);
   setInterval(api.refreshStatusesR, CONFIG.INTERVAL_MS);
   setInterval(api.getMovingsTrains, CONFIG.INTERVAL_MS);
+
+  document.addEventListener("set:updated", () => {
+    api.getMovingsTrains();
+  });
 }
+

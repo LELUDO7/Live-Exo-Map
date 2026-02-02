@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title data-i18n="title.map">MonTrax Map</title>
-    <meta
-      name="description"
-      content="Carte en direct des trains EXO à Montréal — positions et lignes en temps réel."
-    />
-    <meta
-      name="keywords"
-      content="MonTrax, Trax, train, EXO, Montréal, mtl train live, carte, map, temps réel, transit, transport"
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Map Tiler -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
-    <link
-      href="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.css"
-      rel="stylesheet"
-    />
-   
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
- <link rel="stylesheet" href="variables.css" />
+<head>
+  <meta charset="UTF-8" />
+  <title data-i18n="title.map">MonTrax Map</title>
+  <meta name="description" content="Carte en direct des trains EXO à Montréal — positions et lignes en temps réel." />
+  <meta name="keywords"
+    content="MonTrax, Trax, train, EXO, Montréal, mtl train live, carte, map, temps réel, transit, transport" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Map Tiler -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="variables.css" />
+</head>
+
+<body>
+  <div id="root"></div>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.umd.min.js"></script>
   <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v4.1.0/leaflet-maptilersdk.umd.min.js"></script>
@@ -37,8 +28,12 @@
   <script src="./data/train.rails.data.js"></script>
   <script src="./data/train.lines.data.js"></script>
   <script src="./data/wagon.model.js"></script>
+
   <script src="config.js?v=4"></script>
   <script src="key.js?v=4"></script>
   <script src="./languages/lang.js?v=4"></script>
-  <script src="main.js?v=4"></script>
+
+  <script type="module" src="main.js?v=4"></script>
+</body>
+
 </html>
