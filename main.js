@@ -9,7 +9,7 @@ async function loadUI() {
        <link rel="stylesheet" href="./mobile/style/navbar.css">
        <link rel="stylesheet" href="./mobile/style/settings.css">`
     );
-    const mod = await import("./mobile/app.js");
+    const mod = await import("./mobile/app.js?=v4");
     mod.init(); 
   } else {
     document.head.insertAdjacentHTML(
@@ -24,7 +24,7 @@ async function loadUI() {
        <link rel="stylesheet" href="./desktop/style/realMap/pin.css">
        <link rel="stylesheet" href="./desktop/style/realMap/panel.css">`
     );
-    const app = await import("./desktop/app.js");
+    const app = await import("./desktop/app.js?v=4");
    
     app.init(); 
   }
