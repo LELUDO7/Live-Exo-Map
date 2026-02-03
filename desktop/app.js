@@ -63,41 +63,69 @@ export async function init() {
 
       <section class="consists-section" id="consists">
         <div class="container">
-          <h1 data-i18n="consists" >Consists</h1>
+          <div class="consists-section-head">
+            <h1 data-i18n="consists" >Consists</h1>
+            <input
+              type="date"
+              id="consists-date"
+              min="2024-01-01"
+              max="2026-12-31"
+            />
+          </div>
           <hr class="consists-line">
           <div class="consists-line-1 consists-table">
-            <h2 data-i18n="consists.line1" >Ligne 11 Vaudreuil/Hudson</h2>
-            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/VH/exo11-20241122_21001231.pdf">Horraire de la ligne</a>
-            <hr class="consists-line">
-            <div id="consists-line-1-table" ></div>
+            <div id="consists-section-line-1-head" class="consists-section-line-head">
+              <h2 data-i18n="consists.line1" >Ligne 11 Vaudreuil/Hudson</h2>
+              <span class="arrow">▶</span>
+            </div>
+            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/SJ/exo12-20250616_21001231.pdf">Horraire de la ligne</a>
+            <div id="consists-line-1-table" >
+               <hr class="consists-line">
+            </div>
           </div>
           <hr class="consists-line">
           <div class="consists-line-4 consists-table">
-            <h2 data-i18n="consists.line4" >Ligne 12 Saint-Jérôme</h2>
+            <div id="consists-section-line-4-head" class="consists-section-line-head">
+              <h2 data-i18n="consists.line4" >Ligne 12 Saint-Jérôme</h2>
+              <span class="arrow">▶</span>
+            </div>
             <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/SJ/exo12-20250616_21001231.pdf">Horraire de la ligne</a>
-            <hr class="consists-line">
-             <div id="consists-line-4-table" ></div>
+            <div id="consists-line-4-table" >
+               <hr class="consists-line">
+            </div>
           </div>
          <hr class="consists-line">
           <div class="consists-line-3 consists-table">
-            <h2 data-i18n="consists.line3" >Ligne 13 Mont-Saint-Hilaire</h2> 
+            <div id="consists-section-line-3-head" class="consists-section-line-head">
+              <h2 data-i18n="consists.line3" >Ligne 13 Mont-Saint-Hilaire</h2> 
+              <span class="arrow">▶</span>
+            </div>
             <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/SH/exo13-20231024_21001231.pdf">Horraire de la ligne</a>
-            <hr class="consists-line">
-             <div id="consists-line-3-table" ></div>
+            <div id="consists-line-3-table" >
+              <hr class="consists-line">
+            </div>
           </div>
           <hr class="consists-line">
           <div class="consists-line-5 consists-table">
-            <h2 data-i18n="consists.line5" >Ligne 14 Candiac</h2>
+            <div id="consists-section-line-5-head" class="consists-section-line-head">
+              <h2 data-i18n="consists.line5" >Ligne 14 Candiac</h2>
+              <span class="arrow">▶</span>
+            </div>
             <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/CA/exo14-20241122_21001231.pdf">Horraire de la ligne</a>
-            <hr class="consists-line">
-             <div id="consists-line-5-table" ></div>
+            <div id="consists-line-5-table" >
+               <hr class="consists-line">
+            </div>
           </div>
           <hr class="consists-line">
           <div class="consists-line-6 consists-table">
-            <h2 data-i18n="consists.line6" >Ligne 15 Mascouche</h2>
-            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/MA/exo15-20230731_21001231.pdf">Horraire de la ligne</a>
-            <hr class="consists-line">
-             <div id="consists-line-6-table" ></div>
+            <div id="consists-section-line-6-head" class="consists-section-line-head">
+              <h2 data-i18n="consists.line6" >Ligne 15 Mascouche</h2>
+              <span class="arrow">▶</span>
+            </div>
+            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/MA/exo15-20251222_21001231.pdf">Horraire de la ligne</a>
+            <div id="consists-line-6-table" >
+              <hr class="consists-line">
+            </div>
           </div>
         </div>
       </section>
@@ -162,14 +190,13 @@ export async function init() {
     </main>
   `;
 
-  const lang = await import("./src/language.js?v=41");
-
-  const rend = await import("./src/map/rendering.js?v=41");
-  const api = await import("./src/api.js?v=41");
-  const cm = await import("./src/contentManager.js?v=41");
-  const cons = await import("./src/consists.js?v=41");
+  const lang = await import("./src/language.js?v=51");
+  const rend = await import("./src/map/rendering.js?v=51");
+  const api = await import("./src/api.js?v=51");
+  const cm = await import("./src/contentManager.js?v=51");
+  const cons = await import("./src/consists.js?v=51");
   const realMap = await import("./src/map/realMap.js");
-  const set = await import("./src/settings.js?v=41");
+  const set = await import("./src/settings.js?v=51");
 
   set.initSettings();
   lang.initLanguage();
