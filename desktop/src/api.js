@@ -1,6 +1,6 @@
 // api.js
 const rend = await import("./map/rendering.js");
-const rm = await import("./map/realMap.js");
+const rm = await import("./map/realMap.js")
 const set = await import("./settings.js");
 
 export async function refreshStatuses() {
@@ -35,14 +35,13 @@ export async function refreshStatusesR() {
   }
 }
 
-export async function getLineConsists(line, dateStr) {
+export async function getLineConsists(line) {
   try {
     const res = await fetch(`${CONFIG.API_URL}/api/exo/trains/consists`, {
       method: "GET",
       headers: {
         cache: "no-store",
         "X-Consists-Line": line,
-        "X-Consists-Date": dateStr,
       },
     });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
