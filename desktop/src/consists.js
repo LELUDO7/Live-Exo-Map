@@ -65,6 +65,7 @@ function initDateInput() {
   const mm = String(today.getMonth() + 1).padStart(2, "0");
   const dd = String(today.getDate()).padStart(2, "0");
 
+  dateInput.value = today.toLocaleDateString("en-CA");  
   dateInput.max = `${yyyy}-${mm}-${dd}`;
   dateInput.min = `2026-01-01`
 
