@@ -15,12 +15,6 @@ const table6 = document.getElementById("consists-line-6-table");
 const dateInput = document.getElementById("consists-date");
 
 export async function initConsists() {
-  table1.appendChild(createConsistsTables(await api.getLineConsists(1)));
-  table3.appendChild(createConsistsTables(await api.getLineConsists(3)));
-  table4.appendChild(createConsistsTables(await api.getLineConsists(4)));
-  table5.appendChild(createConsistsTables(await api.getLineConsists(5)));
-  table6.appendChild(createConsistsTables(await api.getLineConsists(6)));
-
   head1.addEventListener("click", () => {
     const isOpen = table1.style.display === "block";
 
@@ -57,6 +51,32 @@ export async function initConsists() {
   });
 
   initDateInput();
+
+  updateTable(dateInput.value);
+}
+
+async function updateTable(dateStr) {
+  table1.innerHTML = "";
+  table3.innerHTML = "";
+  table4.innerHTML = "";
+  table5.innerHTML = "";
+  table6.innerHTML = "";
+
+  table1.appendChild(
+    createConsistsTables(await api.getLineConsists(1, dateStr))
+  );
+  table3.appendChild(
+    createConsistsTables(await api.getLineConsists(3, dateStr))
+  );
+  table4.appendChild(
+    createConsistsTables(await api.getLineConsists(4, dateStr))
+  );
+  table5.appendChild(
+    createConsistsTables(await api.getLineConsists(5, dateStr))
+  );
+  table6.appendChild(
+    createConsistsTables(await api.getLineConsists(6, dateStr))
+  );
 }
 
 function initDateInput() {
@@ -65,12 +85,16 @@ function initDateInput() {
   const mm = String(today.getMonth() + 1).padStart(2, "0");
   const dd = String(today.getDate()).padStart(2, "0");
 
-  dateInput.value = today.toLocaleDateString("en-CA");  
+  dateInput.value = today.toLocaleDateString("en-CA");
   dateInput.max = `${yyyy}-${mm}-${dd}`;
-  dateInput.min = `2026-01-01`
+  dateInput.min = `2026-02-02`;
 
   dateInput.addEventListener("change", (e) => {
-    console.log("Date choisie :", e.target.value);
+    if (e.target.value == "") {
+      updateTable("2005-02-24");
+    } else {
+      updateTable(e.target.value);
+    }
   });
 }
 
