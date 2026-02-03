@@ -12,15 +12,15 @@ let trainsData;
 
 let geojsonLayer;
 
-map.on("zoomend", showStationName);
-
-document
-  .querySelector(".realMap-train-panel-close-btn")
-  .addEventListener("click", () => {
-    panel.classList.add("hidden");
-  });
-
 export function init() {
+  
+  map.on("zoomend", showStationName);
+  document
+    .querySelector(".realMap-train-panel-close-btn")
+    .addEventListener("click", () => {
+      panel.classList.add("hidden");
+    });
+
   L.maptiler
     .maptilerLayer({
       apiKey: KEY.mapTilerKey,
@@ -130,7 +130,6 @@ function openTrainPanel(train) {
 
   panel.classList.remove("hidden");
 }
-
 
 export function updateTrainPanel() {
   if (panelActiveTrain) {
