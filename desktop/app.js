@@ -162,14 +162,14 @@ export async function init() {
     </main>
   `;
 
-  const lang = await import("./src/language.js?v=41");
+  const lang = await import("./src/language.js?v=5");
 
-  const rend = await import("./src/map/rendering.js?v=41");
-  const api = await import("./src/api.js?v=41");
-  const cm = await import("./src/contentManager.js?v=41");
-  const cons = await import("./src/consists.js?v=41");
+  const rend = await import("./src/map/rendering.js?v=5");
+  const api = await import("./src/api.js?v=5");
+  const cm = await import("./src/contentManager.js?v=5");
+  const cons = await import("./src/consists.js?v=5");
   const realMap = await import("./src/map/realMap.js");
-  const set = await import("./src/settings.js?v=41");
+  const set = await import("./src/settings.js?v=5");
 
   set.initSettings();
   lang.initLanguage();
