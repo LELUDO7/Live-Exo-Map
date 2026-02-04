@@ -78,7 +78,7 @@ export async function init() {
               <h2 data-i18n="consists.line1" >Ligne 11 Vaudreuil/Hudson</h2>
               <span class="arrow">▶</span>
             </div>
-            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/SJ/exo12-20250616_21001231.pdf">Horraire de la ligne</a>
+            <a data-i18n="consists.schedule.link" class="a-schedule-link" href="https://exo.quebec/Media/Default/z/lignes/train/TRAINS/VH/exo11-20241122_21001231.pdff">Horraire de la ligne</a>
             <div id="consists-line-1-table" >
                <hr class="consists-line">
             </div>
