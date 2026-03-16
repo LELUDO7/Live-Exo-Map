@@ -1,5 +1,5 @@
 <h1>Live EXo Map </h1>
-<h2>Version : V5.1.0 </h2></br>
+<h2>Version : V5.2.0 </h2></br>
 Description : this project display exo train postion live on a map
 The website is accessible here : https://map.montrax.org
 

@@ -2,10 +2,10 @@
 const lang = await import("../language.js");
 const set = await import("../settings.js");
 const board = document.getElementById("board");
-const dotsById = new Map();
 
 export function renderMap() {
   POINTS_CONFIG.forEach((pt) => {
+   
     const el = createDots(pt, false);
     const menu = createMenu();
 
@@ -56,8 +56,10 @@ function createMenu() {
 }
 
 export function updateDots(items) {
+  
   for (const station of items) {
     const dot = dotsById.get(station.id);
+    
     if (!dot) continue;
     dot.classList.remove(...Object.values(STATUS_CLASS));
     dot.classList.add(STATUS_CLASS[station.status] || STATUS_CLASS.offline);

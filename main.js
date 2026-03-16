@@ -4,27 +4,27 @@ async function loadUI() {
   if (isMobile) {
     document.head.insertAdjacentHTML(
       "beforeend",
-      `<link rel="stylesheet" href="./mobile/main.css?v=51">
-       <link rel="stylesheet" href="./mobile/style/menu.css?v=51">
-       <link rel="stylesheet" href="./mobile/style/navbar.css?v=51">
-       <link rel="stylesheet" href="./mobile/style/settings.css?v=51">`
+      `<link rel="stylesheet" href="./mobile/main.css?v=52">
+       <link rel="stylesheet" href="./mobile/style/menu.css?v=52">
+       <link rel="stylesheet" href="./mobile/style/navbar.css?v=52">
+       <link rel="stylesheet" href="./mobile/style/settings.css?v=52">`
     );
-    const mod = await import("./mobile/app.js?v=51");
+    const mod = await import("./mobile/app.js?v=52");
     mod.init(); 
   } else {
     document.head.insertAdjacentHTML(
       "beforeend",
-      `<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css?v=51"/>
-       <link rel="stylesheet" href="./desktop/main.css?v=51">
-       <link rel="stylesheet" href="./desktop/style/menu.css?v=51">
-       <link rel="stylesheet" href="./desktop/style/navbar.css?v=51">
-       <link rel="stylesheet" href="./desktop/style/settings.css?v=51">
-       <link rel="stylesheet" href="./desktop/style/consists.css?v=51">
-       <link rel="stylesheet" href="./desktop/style/realMap/realMap.css?v=51">
-       <link rel="stylesheet" href="./desktop/style/realMap/pin.css?v=51">
-       <link rel="stylesheet" href="./desktop/style/realMap/panel.css?v=51">`
+      `<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css?v=52"/>
+       <link rel="stylesheet" href="./desktop/main.css?v=52">
+       <link rel="stylesheet" href="./desktop/style/menu.css?v=52">
+       <link rel="stylesheet" href="./desktop/style/navbar.css?v=52">
+       <link rel="stylesheet" href="./desktop/style/settings.css?v=52">
+       <link rel="stylesheet" href="./desktop/style/consists.css?v=52">
+       <link rel="stylesheet" href="./desktop/style/realMap/realMap.css?v=52">
+       <link rel="stylesheet" href="./desktop/style/realMap/pin.css?v=52">
+       <link rel="stylesheet" href="./desktop/style/realMap/panel.css?v=52">`
     );
-    const app = await import("./desktop/app.js?v=51");
+    const app = await import("./desktop/app.js?v=52");
    
     app.init(); 
  
