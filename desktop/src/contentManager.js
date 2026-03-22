@@ -1,25 +1,29 @@
-export function initContentManager() {
+const realMap = await import("./map/realMap.js");
 
+export function initContentManager() {
   document.getElementById("mapBtn").addEventListener("click", displayMap);
   document.getElementById("aboutBtn").addEventListener("click", displayAbout);
-  document.getElementById("consistsBtn").addEventListener("click", displayConsists);
+  document
+    .getElementById("consistsBtn")
+    .addEventListener("click", displayConsists);
 
   document.getElementById("consists").style.display = "none";
 }
 
-function displayMap(){
+function displayMap() {
+  document.getElementById("map").style.display = "grid";
+  document.getElementById("about").style.display = "block";
+  document.getElementById("consists").style.display = "none";
+  realMap.init();
+}
+
+function displayAbout() {
   document.getElementById("map").style.display = "grid";
   document.getElementById("about").style.display = "block";
   document.getElementById("consists").style.display = "none";
 }
 
-function displayAbout(){
-  document.getElementById("map").style.display = "grid";
-  document.getElementById("about").style.display = "block";
-  document.getElementById("consists").style.display = "none";
-}
-
-function displayConsists(){
+function displayConsists() {
   document.getElementById("map").style.display = "none";
   document.getElementById("about").style.display = "none";
   document.getElementById("consists").style.display = "block";

@@ -196,7 +196,7 @@ export async function init() {
   const api = await import("./src/api.js?v=53");
   const cm = await import("./src/contentManager.js?v=53");
   const cons = await import("./src/consists.js?v=53");
-  const realMap = await import("./src/map/realMap.js?v=53");
+  const realMap = await import("./src/map/realMap.js");
   const set = await import("./src/settings.js?v=53");
 
   set.initSettings();
@@ -218,4 +218,3 @@ export async function init() {
     api.getMovingsTrains();
   });
 }
-
