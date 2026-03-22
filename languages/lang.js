@@ -6,7 +6,7 @@ const I18N = {
     "nav.about": "À propos",
     "about.title": "À propos",
     "about.text":
-      "MonTrax est un projet qui a pour objectif d'afficher la postition en direct des différents train de banlieux (EXO) de la région de montréal. Il est possible d'obtenir plus d'information sur les train en circulation en activant l'option information avancer dans les paramètre.",
+      "MonTrax est un projet qui a pour objectif d'afficher la position en direct des différents trains de banlieue (EXO) de la région de Montréal. Il est possible d'obtenir plus d'informations sur les trains en circulation en activant l'option informations avancées dans les paramètres.",
     "menu.detail": "Détails du",
     "menu.occupation": "Occupation : ",
     "menu.composition": "Composition :",

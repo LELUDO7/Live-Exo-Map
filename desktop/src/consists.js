@@ -134,8 +134,8 @@ function createConsistsTables(line) {
     consistTable.innerHTML = `<td>${consist.trip_short_name}</td><td>${consist.trip_headsign}</td>`;
 
     wagonTablePosition.innerHTML = `<th data-i18n="consists.table.order"></th>`;
-    wagonTableID.innerHTML = "<th>Id</th>";
-    wagonTableModel.innerHTML = `<th ata-i18n="consists.table.model">Model</th>`;
+    wagonTableID.innerHTML = "<th>ID</th>";
+    wagonTableModel.innerHTML = `<th data-i18n="consists.table.model">Model</th>`;
 
     for (const wagon of consist.composition) {
       const wagonTablePositionContent = document.createElement("td");
