@@ -4,6 +4,10 @@
   border-radius: 6px;
 }
 
+.consists-table-body {
+  overflow-x: auto;
+}
+
 .consists-line-1 {
   background: #f26178c3;
   color: #000000;

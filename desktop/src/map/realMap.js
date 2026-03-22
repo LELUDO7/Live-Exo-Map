@@ -1,8 +1,8 @@
 const lang = await import("../language.js");
-const map = L.map("realMap").setView([45.5, -73.6], 10);
+let map;
 const GLOBAL_COLOR = "#0a689e";
 
-const markersLayer = L.layerGroup().addTo(map);
+let markersLayer;
 const panel = document.getElementById("realMap-train-panel");
 const panelHead = document.getElementById("realMap-train-panel-head");
 const panelBody = document.getElementById("realMap-train-panel-body");
@@ -13,7 +13,14 @@ let trainsData;
 let geojsonLayer;
 
 export function init() {
-  
+  map = L.map("realMap").setView([45.5, -73.6], 10);
+  markersLayer = L.layerGroup().addTo(map);
+
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 500);
+
+
   map.on("zoomend", showStationName);
   document
     .querySelector(".realMap-train-panel-close-btn")
@@ -28,6 +35,8 @@ export function init() {
         "https://api.maptiler.com/maps/019bbeeb-491f-7e21-9282-a107963020d7/style.json",
     })
     .addTo(map);
+
+
 
   fetch("/data/exo_shapes.geojson")
     .then((r) => r.json())

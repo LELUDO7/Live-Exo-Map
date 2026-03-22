@@ -23,9 +23,8 @@
     padding: 10px 0;
 }
 
-.brand {
-    font-weight: 700;
-    letter-spacing: 0.2px;
+.brand img {
+    height: 35px;
 }
 
 .nav-links a {

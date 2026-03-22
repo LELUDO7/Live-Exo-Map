@@ -5,6 +5,11 @@ html,body {
     color: var(--text);
 }
 
+.fontConsolas {
+   font-family: 'Fira Code', 'Consolas', monospace;
+   
+} 
+
 .rail-fan-element-block {
     display: none;
 }

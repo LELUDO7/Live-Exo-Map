@@ -2,7 +2,11 @@ export async function init() {
   document.getElementById("root").innerHTML = `
      <header class="navbar">
       <div class="container nav-inner">
-        <div class="brand" data-i18n="title.map">MonTrax Map</div>
+        <div class="brand">
+          <a href="https://montrax.org">
+          <img src="./assets/Montrax-Logo-2-V2.svg"></img>
+          </a>
+        </div>
         <nav class="nav-links">
           <a id="mapBtn" href="#map" data-i18n="nav.map">Carte</a>
           <a id="consistsBtn" data-i18n="nav.consists">Consists</a>
@@ -170,33 +174,30 @@ export async function init() {
         </div>
       </div>
 
-      <section id="about" class="about-section">
+      <section id="about" class="about-section fontConsolas">
         <div class="container">
           <h2 data-i18n="about.title">À propos</h2>
           <p data-i18n="about.text">
-            Projet expérimental qui affiche l’état des gares des trains de
-            banlieue de la région de Montréal. Les points changent de couleur
-            selon le statut rapporté par l’API (En gare [vert], En approche
-            [Jaune]).
+            MonTrax est un projet qui a pour objectif d'afficher la postition en direct des différents train de banlieux (EXO) de la région de montréal. Il est possible d'obtenir plus d'information sur les train en circulation en activant l'option information avancer dans les paramètre.
           </p>
           <a class="btn" data-i18n="about.more.link" onclick="window.open('https://montrax.org', '_blank')">
             En savoir plus
           </a>
         </div>
       </section>
-      <footer>
+      <footer class="fontConsolas">
         <p>© 2026 — MonTrax</p>
       </footer>
     </main>
   `;
 
-  const lang = await import("./src/language.js?v=52");
-  const rend = await import("./src/map/rendering.js?v=52");
-  const api = await import("./src/api.js?v=52");
-  const cm = await import("./src/contentManager.js?v=52");
-  const cons = await import("./src/consists.js?v=52");
-  const realMap = await import("./src/map/realMap.js");
-  const set = await import("./src/settings.js?v=52");
+  const lang = await import("./src/language.js?v=53");
+  const rend = await import("./src/map/rendering.js?v=53");
+  const api = await import("./src/api.js?v=53");
+  const cm = await import("./src/contentManager.js?v=53");
+  const cons = await import("./src/consists.js?v=53");
+  const realMap = await import("./src/map/realMap.js?v=53");
+  const set = await import("./src/settings.js?v=53");
 
   set.initSettings();
   lang.initLanguage();

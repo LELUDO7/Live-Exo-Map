@@ -1,4 +1,5 @@
 const api = await import("./api.js");
+const lang = await import("./language.js");
 
 const head1 = document.getElementById("consists-section-line-1-head");
 const head3 = document.getElementById("consists-section-line-3-head");
@@ -15,6 +16,7 @@ const table6 = document.getElementById("consists-line-6-table");
 const dateInput = document.getElementById("consists-date");
 
 export async function initConsists() {
+  
   head1.addEventListener("click", () => {
     const isOpen = table1.style.display === "block";
 
@@ -50,17 +52,26 @@ export async function initConsists() {
     head6.classList.toggle("open", !isOpen);
   });
 
+
   initDateInput();
 
   updateTable(dateInput.value);
 }
 
 async function updateTable(dateStr) {
+  
+
   table1.innerHTML = "";
   table3.innerHTML = "";
   table4.innerHTML = "";
   table5.innerHTML = "";
   table6.innerHTML = "";
+
+  table1.classList.add("consists-table-body");
+  table3.classList.add("consists-table-body");
+  table4.classList.add("consists-table-body");
+  table5.classList.add("consists-table-body");
+  table6.classList.add("consists-table-body");
 
   table1.appendChild(
     createConsistsTables(await api.getLineConsists(1, dateStr))
@@ -77,6 +88,8 @@ async function updateTable(dateStr) {
   table6.appendChild(
     createConsistsTables(await api.getLineConsists(6, dateStr))
   );
+
+  
 }
 
 function initDateInput() {
@@ -100,7 +113,7 @@ function initDateInput() {
 
 function createConsistsTables(line) {
   const table = document.createElement("table");
-
+  
   table.innerHTML = `
       <tr>
       <th>Train</th>
@@ -148,6 +161,6 @@ function createConsistsTables(line) {
 
     table.appendChild(consistTable);
   });
-
+  lang.initLanguage();
   return table;
 }
